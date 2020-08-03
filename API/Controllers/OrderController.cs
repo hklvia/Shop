@@ -63,17 +63,9 @@ namespace API.Controllers
             var OrderNum = BLL.Add(token, orderVModel);
             if (OrderNum.IsEmpty())
             {
-                return new ResponsMessage<string>()
-                {
-                    Code = 500,
-                    Data = "创建失败！"
-                };
+                return Error<string>("");
             }
-            return new ResponsMessage<string>()
-            {
-                Code = 200,
-                Data = OrderNum
-            };
+            return Success<string>(OrderNum);
         }
     }
 }
