@@ -146,7 +146,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="OrderID" Type="int" />
+          <Property Name="PID" Type="int" />
           <Property Name="ProductID" Type="int" />
           <Property Name="Count" Type="int" />
           <Property Name="ProductPrice" Type="decimal" Precision="18" Scale="2" />
@@ -324,10 +324,10 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="OrderID" Type="Int32" />
           <Property Name="ProductID" Type="Int32" />
           <Property Name="Count" Type="Int32" />
           <Property Name="ProductPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PID" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -485,10 +485,10 @@
           <EntitySetMapping Name="SubOrder">
             <EntityTypeMapping TypeName="ShopModel.SubOrder">
               <MappingFragment StoreEntitySet="SubOrder">
+                <ScalarProperty Name="PID" ColumnName="PID" />
                 <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
                 <ScalarProperty Name="Count" ColumnName="Count" />
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

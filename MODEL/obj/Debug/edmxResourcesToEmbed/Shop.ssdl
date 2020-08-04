@@ -141,7 +141,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="OrderID" Type="int" />
+    <Property Name="PID" Type="int" />
     <Property Name="ProductID" Type="int" />
     <Property Name="Count" Type="int" />
     <Property Name="ProductPrice" Type="decimal" Precision="18" Scale="2" />

@@ -155,9 +155,9 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="OrderID" Type="Int32" />
     <Property Name="ProductID" Type="Int32" />
     <Property Name="Count" Type="Int32" />
     <Property Name="ProductPrice" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PID" Type="Int32" />
   </EntityType>
 </Schema>

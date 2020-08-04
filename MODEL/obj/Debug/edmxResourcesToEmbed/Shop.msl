@@ -151,10 +151,10 @@
     <EntitySetMapping Name="SubOrder">
       <EntityTypeMapping TypeName="ShopModel.SubOrder">
         <MappingFragment StoreEntitySet="SubOrder">
+          <ScalarProperty Name="PID" ColumnName="PID" />
           <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
           <ScalarProperty Name="Count" ColumnName="Count" />
           <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

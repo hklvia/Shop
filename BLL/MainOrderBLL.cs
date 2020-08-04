@@ -20,7 +20,7 @@ namespace BLL
         public MainOrder GetOne(string id, out List<SubOrder> subOrders)
         {
             var mainOrder = dal.GetOne(Int32.Parse(id));
-            subOrders = subOrderDAL.Search(x => x.OrderID == mainOrder.ID);
+            subOrders = subOrderDAL.Search(x => x.PID == mainOrder.ID);
             return mainOrder;
         }
 
@@ -33,8 +33,9 @@ namespace BLL
                 string random = new Random().Next(10000, 999999).ToString();
                 string time = DateTime.Now.ToString("yyyyMMddHHmmss");
                 orderVModel.MainOrder.OrderNum = time + random;
-                //order.MainOrder.OrderStatus = "";
+                orderVModel.MainOrder.OrderStatus = "1";
                 orderVModel.MainOrder.ExpressNum = random;
+                orderVModel.MainOrder.CreateTime = DateTime.Now;
 
                 var result = 0;
                 var tran = dal.BeginTran();
@@ -44,7 +45,7 @@ namespace BLL
                     result += SaveChange();
                     foreach (var sub in orderVModel.SubOrders)
                     {
-                        sub.OrderID = orderVModel.MainOrder.ID;
+                        sub.PID = orderVModel.MainOrder.ID;
                         subOrderDAL.Add(sub);
                     }
                     result += SaveChange();

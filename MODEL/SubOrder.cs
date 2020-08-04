@@ -15,9 +15,9 @@ namespace MODEL
     public partial class SubOrder:BaseModel
     {
         
-        public Nullable<int> OrderID { get; set; }
         public Nullable<int> ProductID { get; set; }
         public Nullable<int> Count { get; set; }
         public Nullable<decimal> ProductPrice { get; set; }
+        public Nullable<int> PID { get; set; }
     }
 }
