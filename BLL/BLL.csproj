@@ -49,9 +49,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseBLL.cs" />
+    <Compile Include="CreateNumber.cs" />
     <Compile Include="LoginBLL.cs" />
     <Compile Include="MainOrderBLL.cs" />
     <Compile Include="MemberBLL.cs" />
+    <Compile Include="NumberBLL.cs" />
     <Compile Include="ProductAttrValueBLL.cs" />
     <Compile Include="ProductAttrKeyBLL.cs" />
     <Compile Include="ProductBLL.cs" />

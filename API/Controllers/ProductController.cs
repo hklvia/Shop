@@ -38,7 +38,7 @@ namespace API.Controllers
             }
             catch (Exception ex)
             {
-                return Error<PageModel<Product>>("在查询分页数据过程中出现异常"+ex.Message);
+                return Error<PageModel<Product>>("在查询分页数据过程中出现异常" + ex.Message);
             }
         }
 
@@ -46,15 +46,6 @@ namespace API.Controllers
         [Route("api/Product/getfull")]
         public ResponsMessage<ProductVModel> GetFullIndoByID(int id)
         {
-            //try
-            //{
-            //    var productDetail = BLL.GetFullInfoByID(id);
-            //    return Success(productDetail);
-            //}
-            //catch (Exception ex)
-            //{
-            //    return Error<ProductVModel>("在查询商品详情过程中出现异常" + ex.Message);
-            //}
             List<ProductAttr> attrs;
             List<ProductSku> skus;
             var product = BLL.GetOne(id, out skus, out attrs);

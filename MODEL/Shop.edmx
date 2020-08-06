@@ -43,6 +43,14 @@
           <Property Name="OpenId" Type="varchar" MaxLength="200" />
           <Property Name="Phone" Type="varchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="Number">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="int" />
+          <Property Name="CurrentNumber" Type="int" />
+        </EntityType>
         <EntityType Name="Product">
           <Key>
             <PropertyRef Name="ID" />
@@ -150,11 +158,14 @@
           <Property Name="ProductID" Type="int" />
           <Property Name="Count" Type="int" />
           <Property Name="ProductPrice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SkuID" Type="int" />
+          <Property Name="SkuInfo" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityContainer Name="ShopModelStoreContainer">
           <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MainOrder" EntityType="Self.MainOrder" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Number" EntityType="Self.Number" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductAttr" EntityType="Self.ProductAttr" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductAttrKey" EntityType="Self.ProductAttrKey" Schema="dbo" store:Type="Tables" />
@@ -196,6 +207,7 @@
           <EntitySet Name="Member" EntityType="ShopModel.Member" />
           <EntitySet Name="MainOrder" EntityType="ShopModel.MainOrder" />
           <EntitySet Name="SubOrder" EntityType="ShopModel.SubOrder" />
+          <EntitySet Name="Number" EntityType="ShopModel.Number" />
         </EntityContainer>
         <EntityType Name="Product">
           <Key>
@@ -328,6 +340,16 @@
           <Property Name="Count" Type="Int32" />
           <Property Name="ProductPrice" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="PID" Type="Int32" />
+          <Property Name="SkuID" Type="Int32" />
+          <Property Name="SkuInfo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Number">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="CurrentNumber" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -485,10 +507,21 @@
           <EntitySetMapping Name="SubOrder">
             <EntityTypeMapping TypeName="ShopModel.SubOrder">
               <MappingFragment StoreEntitySet="SubOrder">
+                <ScalarProperty Name="SkuInfo" ColumnName="SkuInfo" />
+                <ScalarProperty Name="SkuID" ColumnName="SkuID" />
                 <ScalarProperty Name="PID" ColumnName="PID" />
                 <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
                 <ScalarProperty Name="Count" ColumnName="Count" />
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Number">
+            <EntityTypeMapping TypeName="ShopModel.Number">
+              <MappingFragment StoreEntitySet="Number">
+                <ScalarProperty Name="CurrentNumber" ColumnName="CurrentNumber" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

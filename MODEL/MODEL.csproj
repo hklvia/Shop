@@ -60,6 +60,9 @@
     <Compile Include="Member.cs">
       <DependentUpon>Shop.tt</DependentUpon>
     </Compile>
+    <Compile Include="Number.cs">
+      <DependentUpon>Shop.tt</DependentUpon>
+    </Compile>
     <Compile Include="Product.cs">
       <DependentUpon>Shop.tt</DependentUpon>
     </Compile>

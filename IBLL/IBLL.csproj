@@ -52,6 +52,7 @@
     <Compile Include="ILoginBLL.cs" />
     <Compile Include="IMainOrderBLL.cs" />
     <Compile Include="IMemberBLL.cs" />
+    <Compile Include="INumberBLL.cs" />
     <Compile Include="IProductAttrValueBLL.cs" />
     <Compile Include="IProductAttrKeyBLL.cs" />
     <Compile Include="IProductBLL.cs" />

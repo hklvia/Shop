@@ -11,7 +11,6 @@ namespace BLL
     {
         IProductSkuDAL skuDal = new ProductSkuDAL();
         IProductAttrDAL attrDal = new ProductAttrDAL();
-        //IProductSkuImgDAL skuImgDal = new ProductSkuImgDAL();
         IProductAttrKeyBLL attrBll = new ProductAttrKeyBLL();
         public int Add(Product product, List<ProductSku> skuList, List<ProductAttr> attrList)
         {
@@ -96,18 +95,5 @@ namespace BLL
             attrs = attrDal.Search(x => x.ProductID == id);
             return product;
         }
-
-        //public ProductVModel GetFullInfoByID(int id)
-        //{
-        //    var product = dal.GetOne(id);
-        //    var attrs = attrBll.GetByCategoryID(product.ProductCategoryID.Value, true);
-        //    var productSkus = skuDal.Search(x => x.ProductID == product.ID);
-        //    return new ProductVModel()
-        //    {
-        //        Product = product,
-        //        //Attrs = attrs,
-        //        ProductSkus = productSkus
-        //    };
-        //}
     }
 }

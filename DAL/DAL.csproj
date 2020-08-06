@@ -53,6 +53,7 @@
     <Compile Include="LoginDAL.cs" />
     <Compile Include="MainOrderDAL.cs" />
     <Compile Include="MemberDAL.cs" />
+    <Compile Include="NumberDAL.cs" />
     <Compile Include="ProductAttrDAL.cs" />
     <Compile Include="ProductBrandDAL.cs" />
     <Compile Include="ProductDAL.cs" />

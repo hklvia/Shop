@@ -151,10 +151,21 @@
     <EntitySetMapping Name="SubOrder">
       <EntityTypeMapping TypeName="ShopModel.SubOrder">
         <MappingFragment StoreEntitySet="SubOrder">
+          <ScalarProperty Name="SkuInfo" ColumnName="SkuInfo" />
+          <ScalarProperty Name="SkuID" ColumnName="SkuID" />
           <ScalarProperty Name="PID" ColumnName="PID" />
           <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
           <ScalarProperty Name="Count" ColumnName="Count" />
           <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Number">
+      <EntityTypeMapping TypeName="ShopModel.Number">
+        <MappingFragment StoreEntitySet="Number">
+          <ScalarProperty Name="CurrentNumber" ColumnName="CurrentNumber" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

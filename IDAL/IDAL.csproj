@@ -52,6 +52,7 @@
     <Compile Include="ILoginDAL.cs" />
     <Compile Include="IMainOrderDAL.cs" />
     <Compile Include="IMemberDAL.cs" />
+    <Compile Include="INumberDAL.cs" />
     <Compile Include="IProductAttrDAL.cs" />
     <Compile Include="IProductBrandDAL.cs" />
     <Compile Include="IProductDAL.cs" />

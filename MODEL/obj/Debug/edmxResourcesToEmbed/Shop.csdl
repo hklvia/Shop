@@ -27,6 +27,7 @@
     <EntitySet Name="Member" EntityType="ShopModel.Member" />
     <EntitySet Name="MainOrder" EntityType="ShopModel.MainOrder" />
     <EntitySet Name="SubOrder" EntityType="ShopModel.SubOrder" />
+    <EntitySet Name="Number" EntityType="ShopModel.Number" />
   </EntityContainer>
   <EntityType Name="Product">
     <Key>
@@ -159,5 +160,15 @@
     <Property Name="Count" Type="Int32" />
     <Property Name="ProductPrice" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="PID" Type="Int32" />
+    <Property Name="SkuID" Type="Int32" />
+    <Property Name="SkuInfo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Number">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="Int32" />
+    <Property Name="CurrentNumber" Type="Int32" />
   </EntityType>
 </Schema>
