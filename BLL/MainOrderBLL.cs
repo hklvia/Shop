@@ -27,7 +27,7 @@ namespace BLL
             if (id.Trim() != null && id.Trim() != "")
             {
                 orderVModel.MainOrder.MemberID = new MemberDAL().GetOne(Int32.Parse(id)).ID;
-                orderVModel.MainOrder.OrderNum = dal.CreateNumber(1);
+                orderVModel.MainOrder.OrderNum = new NumberBLL().CreateNumber(1);
                 orderVModel.MainOrder.OrderStatus = "1";
                 //快递单号，暂时由随机数代替
                 orderVModel.MainOrder.ExpressNum = new Random().Next(10000, 999999).ToString();
