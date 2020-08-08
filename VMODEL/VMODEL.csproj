@@ -45,6 +45,7 @@
     <Compile Include="ProductAttrKeyVModel.cs" />
     <Compile Include="ProductVModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TokenVModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MODEL\MODEL.csproj">

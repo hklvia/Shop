@@ -15,6 +15,8 @@ using JWT.Algorithms;
 using JWT;
 using JWT.Serializers;
 using MODEL;
+using Newtonsoft.Json.Linq;
+using VMODEL;
 
 namespace API.Controllers
 {
@@ -24,23 +26,34 @@ namespace API.Controllers
 
         [Route("api/auth/getToken")]
         [HttpPost]
-        public ResponsMessage<string> GetToken(MemberVModel memberVModel)
+        public ResponsMessage<TokenVModel> GetToken(MemberVModel memberVModel)
         {
+            HttpWebResponse response = null;
+            Stream Responsestream = null;
+            StreamReader streamReader = null;
             try
             {
                 string openIdUrl = $"https://api.weixin.qq.com/sns/jscode2session?appid={ConfigurationManager.AppSettings["AppID"]}&secret={ConfigurationManager.AppSettings["AppSecret"]}&js_code={memberVModel.Code}&grant_type=authorization_code";
                 //服务器发起http请求（爬虫）
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(openIdUrl);
-                request.Method = "GET";
                 //获取返回头
-                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                response = (HttpWebResponse)request.GetResponse();
+                request.Method = "GET";
                 //获取响应流
-                Stream Responsestream = response.GetResponseStream();
-                StreamReader streamReader = new StreamReader(Responsestream, System.Text.Encoding.UTF8);
+                Responsestream = response.GetResponseStream();
+                streamReader = new StreamReader(Responsestream, System.Text.Encoding.UTF8);
                 string retString = streamReader.ReadToEnd();
-                streamReader.Close();
-                Responsestream.Close();
-                string openId = JsonConvert.DeserializeObject<dynamic>(retString).openid.ToString();
+
+                if (JObject.Parse(retString)["openid"] == null)
+                {
+                    return new ResponsMessage<TokenVModel>()
+                    {
+                        Code = 500,
+                        Message = "code不正确"
+                    };
+                }
+
+                string openId = JObject.Parse(retString)["openid"].ToString();
                 //判断数据库中是否存在该用户（根据openId）
                 var member = Bll.Search(x => x.OpenId == openId).First();
                 if (member == null)
@@ -51,39 +64,122 @@ namespace API.Controllers
                 }
 
                 //生成token
-                var payload = new Dictionary<string, object>
+                string token, refreshToken;
+                DateTime expire = DateTime.Now.AddDays(7);
+                DateTime now = DateTime.Now;
+                CreateToken(member.ID.ToString(), out token, out refreshToken);
+                //将token存入redis(tkoen设置时间不宜过长,refreshToken过期时间一般是token的两倍)
+                var tokenSet = RedisHelper.Set(token, (member.ID), expire - now);
+                var refreshTokenSet = RedisHelper.Set(refreshToken, (member.ID), expire.AddDays(7) - now);
+                if (!tokenSet && !refreshTokenSet)
                 {
-                    { "UserName", member.NickName+Guid.NewGuid().ToString("N")}
-                };
-                IJwtAlgorithm algorithm = new HMACSHA256Algorithm();
-                IJsonSerializer serializer = new JsonNetSerializer();
-                IBase64UrlEncoder urlEncoder = new JwtBase64UrlEncoder();
-                IJwtEncoder encoder = new JwtEncoder(algorithm, serializer, urlEncoder);
-                var token= encoder.Encode(payload, ConfigurationManager.AppSettings["JwtSecret"]);
-                //将token存入redis
-                RedisHelper.Set(token, member.ID, DateTime.Now.AddDays(7) - DateTime.Now);
+                    return new ResponsMessage<TokenVModel>()
+                    {
+                        Code = 500,
+                        Message = "获取token失败，请重新授权"
+                    };
+                }
 
-                return new ResponsMessage<string>()
+
+                return new ResponsMessage<TokenVModel>()
                 {
                     Code = 200,
-                    Data = token
+                    Data = new TokenVModel()
+                    {
+                        Token = token,
+                        RefreshToken = refreshToken,
+                        Expire = (int)(expire - now).TotalMilliseconds
+                    }
                 };
             }
             catch (Exception ex)
             {
-                return new ResponsMessage<string>()
+                return new ResponsMessage<TokenVModel>()
                 {
-                    Code = 401,
-                    Message = ex.Message
+                    Code = 500,
+                    Message = "获取个人信息失败"
                 };
-            }        
+            }
+            finally
+            {
+                if (streamReader != null)
+                {
+                    streamReader.Close();
+                }
+                if (Responsestream != null)
+                {
+                    Responsestream.Close();
+                }
+                if (response != null)
+                {
+                    response.Close();
+                }
+            }
         }
 
-        //[AuthFilter]
-        //[Route("api/auth/test")]
-        //[HttpGet]
-        //public string AuthTest() {
-        //    return "Auth OK";
-        //}
+        [HttpGet]
+        [Route("api/auth/getTokenByRefreshToken")]
+        public ResponsMessage<TokenVModel> GetTokenByRefreshToken(string rToken) {
+            var uid = RedisHelper.Get(rToken);
+            if (uid==null)
+            {
+                return new ResponsMessage<TokenVModel>()
+                {
+                    Code = 500,
+                    Message = "refreshToken失效，请重新授权"
+                };
+            }
+            string token, refreshToken;
+            CreateToken(uid, out token, out refreshToken);
+            DateTime expire = DateTime.Now.AddDays(7);
+            DateTime now = DateTime.Now;
+            //将token存入redis(tkoen设置时间不宜过长,refreshToken过期时间一般是token的两倍)
+            var tokenSet= RedisHelper.Set(token, Int32.Parse(uid), expire - now);
+            var refreshTokenSet = RedisHelper.Set(refreshToken, Int32.Parse(uid), expire.AddDays(7) - now);
+            if (!tokenSet&& !refreshTokenSet)
+            {
+                return new ResponsMessage<TokenVModel>()
+                {
+                    Code = 500,
+                    Message= "获取token失败，请重新授权"
+                };
+            }
+            return new ResponsMessage<TokenVModel>()
+            {
+                Code = 200,
+                Data = new TokenVModel()
+                {
+                    Token = token,
+                    RefreshToken = refreshToken,
+                    Expire = (int)(expire - now).TotalMilliseconds
+                }
+            };
+        }
+
+        /// <summary>
+        /// 生成token
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <param name="token"></param>
+        /// <param name="refreshToken"></param>
+        private void CreateToken(string uid, out string token, out string refreshToken)
+        {
+            IJwtAlgorithm algorithm = new HMACSHA256Algorithm();
+            IJsonSerializer serializer = new JsonNetSerializer();
+            IBase64UrlEncoder urlEncoder = new JwtBase64UrlEncoder();
+            IJwtEncoder encoder = new JwtEncoder(algorithm, serializer, urlEncoder);
+            //token
+            var payload = new Dictionary<string, object>
+            {
+                { "UserName", uid+Guid.NewGuid().ToString("N")}
+            };
+            token = encoder.Encode(payload, ConfigurationManager.AppSettings["JwtSecret"]);
+            //refreshToken
+            payload = new Dictionary<string, object>
+            {
+                { "UserName", uid+new Random().Next(10000, 999999).ToString()+Guid.NewGuid().ToString("N")}
+            };
+            refreshToken = encoder.Encode(payload, ConfigurationManager.AppSettings["JwtSecret"]);
+        }
     }
 }
