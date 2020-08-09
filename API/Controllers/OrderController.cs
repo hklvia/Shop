@@ -57,6 +57,7 @@ namespace API.Controllers
         /// <returns></returns>
         [Route("api/Order")]
         [AuthFilter]
+        [HttpPost]
         public ResponsMessage<string> PostCreateOrder(OrderVModel orderVModel)
         {
             string token = Request.Headers.Authorization.ToString();

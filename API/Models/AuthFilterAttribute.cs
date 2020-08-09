@@ -17,10 +17,9 @@ namespace API.Models
     {
         public override void OnAuthorization(HttpActionContext actionContext)
         {
-            IEnumerable<string> headValues;
             string token = null;
             //读取请求中是否包含token
-            if (actionContext.Request.Headers.TryGetValues("Authorization",out headValues))
+            if (actionContext.Request.Headers.TryGetValues("Authorization", out IEnumerable<string> headValues))
             {
                 token = headValues.FirstOrDefault();
             }
@@ -52,6 +51,12 @@ namespace API.Models
                     httpResponse.Content = new StringContent("签名无效");
                     actionContext.Response = httpResponse;
                 }
+            }
+            else
+            {
+                HttpResponseMessage httpResponse = new HttpResponseMessage(HttpStatusCode.Unauthorized);
+                httpResponse.Content = new StringContent("签名无效");
+                actionContext.Response = httpResponse;
             }
         }
     }
