@@ -134,7 +134,13 @@
                     { "data": "OrderNum" },
                     {
                         "data": function (data) {
-                            var html = "<img src=\"" + JSON.parse(data.Img).Url + "\" width=\"50\" height=\"50\" />";
+                            var html = ""
+                            if (!data.Img || data.Img == "undefined" || JSON.parse(data.Img).Url == "") {
+                                html = "<img src=\"https://ww1.sinaimg.cn/large/007rAy9hgy1g24by9t530j30i20i2glm.jpg\" width=\"50\" height=\"50\" />";
+                            }
+                            else {
+                                html = "<img src=\"" + JSON.parse(data.Img).Url + "\" width=\"50\" height=\"50\" />";
+                            }
                             return html;
                         }
                     },
@@ -149,7 +155,7 @@
                             }
                             html += "<a href=\"/ProductCategory/Update?id=" + data.ID + "\" class=\"btn btn-outline-success btn-sm\">编辑</a>";
                             html += "&nbsp;&nbsp;";
-                            html += "<a href=\"#\" class=\"btn btn-outline-danger btn-sm\"  onclick=\"alertDelModal(" + data.ID + ",'" + data.Img + "');\">删除</a>";
+                            html += "<a href=\"#\" class=\"btn btn-outline-danger btn-sm\"  onclick=\"alertDelModal(" + data.ID + ");\">删除</a>";
                             return html;
                         }
                     }
@@ -209,13 +215,13 @@
         //    });
         //}
 
-        function alertDelModal(ID, Img) {
+        function alertDelModal(ID) {
             //delID = ID;
             //delImg = Img;
             //$("#del-modal").modal();
             Swal.fire({
                 title: "你确认要删除吗?",
-                text: "此操作不可撤销!",
+                text: "如果包含子分类将会一并删除，此操作不可撤销!",
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#d33",
@@ -224,12 +230,12 @@
                 cancelButtonText: '取消'
             }).then((result) => {
                 if (result.value) {
-                    if (!ID && !Img) {
+                    if (!ID) {
                         return;
                     }
                     var formData = new FormData();
                     formData.append("ID", ID);
-                    formData.append("Img", Img);
+                    //formData.append("Img", Img);
 
                     $.ajax({
                         url: "/ProductCategory/Delete",
@@ -244,17 +250,9 @@
 
                         success: function (data) {
                             if (data.state) {
-                                //$("#del-modal").modal("hide");
                                 Swal.fire(data.msg, "数据已成功删除。", "success");
                                 //刷新datatable数据
                                 $('#table').DataTable().ajax.reload();
-                                //Swal.fire({
-                                //    position: 'top-end',
-                                //    icon: 'success',
-                                //    title: data.msg,
-                                //    showConfirmButton: false,
-                                //    timer: 1500
-                                //})
                             }
                             else {
                                 Swal.fire({

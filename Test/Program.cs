@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using MODEL;
 
@@ -12,35 +13,85 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            //string dh = CreateNumber(1);
-            //Console.WriteLine(dh);
-            var aa= (DateTime.Now.ToUniversalTime().Ticks - 621355968000000000) / 10000;
-            var bb= DateTime.Now.ToString("yyyyMMddHHmmssfffff");
+            //c#实现异步编程
+            //1、通过线程
+            //声明一个线程
+            Thread thread = new Thread(F1);
+            thread.Start();//启动一个线程
+            //线程阻塞
+            //thread.Join();//主线程会等待thread线程执行完毕后才会继续往下执行
+
+            // 2 task
+            //Task task1 = Task.Run(() =>
+            //{
+            //    for (int i = 0; i < 10; i++)
+            //    {
+            //        Console.WriteLine("aaa");
+            //    }
+            //    Thread.Sleep(3000);
+            //});
+
+            //Task task2 = Task.Run(() =>
+            //{
+            //    for (int i = 0; i < 10; i++)
+            //    {
+            //        Console.WriteLine("bbb");
+            //    }
+            //    Thread.Sleep(3000);
+            //});
+
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    Console.WriteLine("111");
+            //}
+
+            //Console.WriteLine(task.Result);//遇到task.Result 会产生一个阻塞，等待异步任务执行结束后才会继续往下执行
+            //Task<string> ts = 
+            //F1();
+            //Console.WriteLine(ts.Result);
+            for (int i = 0; i < 50; i++)
+            {
+                Console.WriteLine("1");
+            }
+            Console.ReadLine();
         }
 
-        //private static string CreateNumber(int type)
-        //{
-        //    ShopEntities entities = new ShopEntities();
-        //    //1-商品销售订单
-        //    //Random random = new Random();
-        //    int currentNumber = 1;
-        //    var number = entities.Number.Where(x => x.Type == type).FirstOrDefault();
-        //    if (number != null)
-        //    {
-        //        currentNumber = number.CurrentNumber.Value + 1;
-        //        number.CurrentNumber = currentNumber;
-        //        entities.SaveChanges();//执行update
-        //    }
-        //    else
-        //    {
-        //        Number number1 = new Number();
-        //        number.Type = type;
-        //        number.CurrentNumber = currentNumber;
-        //        entities.Number.Add(number1);
-        //        entities.SaveChanges();
-        //    }
-        //    string dh = DateTime.Now.ToString("yyyyMMddHHmmssfffff") + new Random().Next(10000, 999999) + currentNumber.ToString().PadLeft(5, '0');
-        //    return dh;
-        //}
+        //async：标识该方法内部至少会有一个异步任务
+        //async修饰的方法内必须至少包含一个await运算符，await后一般跟一个异步任务
+        //async修饰方法的返回值：void、task、task<>
+        //void、task不用返回值
+        //task<T>:直接返回T类型的值就可以
+        public async static void F1()
+        {
+
+            //主线程执行
+            for (int i = 0; i < 20; i++)
+            {
+                Console.WriteLine("a");
+            }
+            //遇到await之后会从线程池中取一个线程执行await之后的所有代码
+            await Task.Run(() =>
+            {
+
+                for (int i = 0; i < 20; i++)
+                {
+                    Console.WriteLine("b");
+                }
+            });
+            await Task.Run(() =>
+             {
+                 for (int i = 0; i < 20; i++)
+                 {
+                     Console.WriteLine("c");
+                 }
+             });
+            //await也会产生一个阻塞，等待await之后的异步任务执行结束之后才会继续往下执行
+
+            for (int i = 0; i < 20; i++)
+            {
+                Console.WriteLine("d");
+            }
+            //return "hello world";
+        }
     }
 }

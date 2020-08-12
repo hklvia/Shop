@@ -46,9 +46,7 @@ namespace API.Controllers
         [Route("api/Product/getfull")]
         public ResponsMessage<ProductVModel> GetFullIndoByID(int id)
         {
-            List<ProductAttr> attrs;
-            List<ProductSku> skus;
-            var product = BLL.GetOne(id, out skus, out attrs);
+            var product = BLL.GetOne(id, out List<ProductSku> skus, out List<ProductAttr> attrs);
             ProductVModel vModel = new ProductVModel()
             {
                 Product = product,

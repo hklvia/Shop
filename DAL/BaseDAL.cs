@@ -48,31 +48,6 @@ namespace DAL
             return entities.Set<T>().Where(where).ToList();
         }
 
-        //public virtual List<T> Search(int pageSize, int pageIndex, bool isDesc, Expression<Func<T, bool>> where)
-        //{
-        //    if (isDesc)
-        //    {
-        //        return entities.Set<T>().Where(where).OrderByDescending(x => x.ID).Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
-        //    }
-        //    else
-        //    {
-        //        return entities.Set<T>().Where(where).OrderBy(x => x.ID).Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
-        //    }
-        //}
-
-        //public virtual List<T> Search<TKey>(int pageSize, int pageIndex, bool isDesc, Func<T, TKey> orderKey, Expression<Func<T, bool>> where)
-        //{
-        //    count = entities.Set<T>().Where<where>.Count();
-        //    if (isDesc)
-        //    {
-        //        return entities.Set<T>().Where(where).OrderByDescending(x => x.ID).Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
-        //    }
-        //    else
-        //    {
-        //        return entities.Set<T>().Where(where).OrderBy(x => x.ID).Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
-        //    }
-        //}
-
         public virtual List<T> Search<TKey>(int pageSize, int pageIndex, bool isDesc, Func<T, TKey> orderkey, Expression<Func<T, bool>> where, out int count)
         {
             //离开当前方法必须给out参数赋值
@@ -105,7 +80,6 @@ namespace DAL
 
         public DbContextTransaction BeginTran()
         {
-            //var tran = entities.Database.BeginTransaction();
             return entities.Database.BeginTransaction();
         }
     }

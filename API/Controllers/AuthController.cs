@@ -23,9 +23,7 @@ namespace API.Controllers
     public class AuthController : ApiController
     {
         public IMemberBLL Bll { get { return new MemberBLL(); } }
-        //static DateTime expire = DateTime.Now.AddDays(7);
-        DateTime expire = DateTime.Now;
-        //DateTime now = (DateTime.Now.ToUniversalTime().Ticks - 621355968000000000) / 10000;
+        readonly DateTime expire = DateTime.Now;
         [Route("api/auth/getToken")]
         [HttpPost]
         public ResponsMessage<TokenVModel> GetToken(MemberVModel memberVModel)
@@ -68,8 +66,8 @@ namespace API.Controllers
                 //生成token
                 CreateToken(member.ID.ToString(), out string token, out string refreshToken);
                 //将token存入redis(tkoen设置时间不宜过长,refreshToken过期时间一般是token的两倍)
-                var tokenSet = RedisHelper.Set(token, (member.ID), expire.AddMinutes(1) - expire);
-                var refreshTokenSet = RedisHelper.Set(refreshToken, (member.ID), expire.AddMinutes(2) - expire);
+                var tokenSet = RedisHelper.Set(token, (member.ID), expire.AddDays(7) - expire);
+                var refreshTokenSet = RedisHelper.Set(refreshToken, (member.ID), expire.AddDays(14) - expire);
                 if (!tokenSet && !refreshTokenSet)
                 {
                     return new ResponsMessage<TokenVModel>()
@@ -86,9 +84,8 @@ namespace API.Controllers
                     {
                         Token = token,
                         RefreshToken = refreshToken,
-                        //Expire = (int)(expire - now).TotalMilliseconds
-                        TokenExpire = (expire.AddMinutes(1).ToUniversalTime().Ticks - 621355968000000000) / 10000,
-                        RefreshTokenExpire = (expire.AddMinutes(2).ToUniversalTime().Ticks - 621355968000000000) / 10000
+                        TokenExpire = (expire.AddDays(7).ToUniversalTime().Ticks - 621355968000000000) / 10000,
+                        RefreshTokenExpire = (expire.AddDays(14).ToUniversalTime().Ticks - 621355968000000000) / 10000
                     }
                 };
             }
@@ -130,11 +127,9 @@ namespace API.Controllers
                 };
             }
             CreateToken(uid, out string token, out string refreshToken);
-            //DateTime expire = DateTime.Now.AddDays(7);
-            //DateTime now = DateTime.Now;
             //将token存入redis(tkoen设置时间不宜过长,refreshToken过期时间一般是token的两倍)
-            var tokenSet= RedisHelper.Set(token, Int32.Parse(uid), expire.AddMinutes(1) - expire);
-            var refreshTokenSet = RedisHelper.Set(refreshToken, Int32.Parse(uid), expire.AddMinutes(2) - expire);
+            var tokenSet= RedisHelper.Set(token, Int32.Parse(uid), expire.AddDays(7) - expire);
+            var refreshTokenSet = RedisHelper.Set(refreshToken, Int32.Parse(uid), expire.AddDays(14) - expire);
             if (!tokenSet&& !refreshTokenSet)
             {
                 return new ResponsMessage<TokenVModel>()
@@ -151,8 +146,8 @@ namespace API.Controllers
                     Token = token,
                     RefreshToken = refreshToken,
                     //Expire = (int)(expire - now).TotalMilliseconds
-                    TokenExpire = (expire.AddMinutes(1).ToUniversalTime().Ticks - 621355968000000000) / 10000,
-                    RefreshTokenExpire = (expire.AddMinutes(2).ToUniversalTime().Ticks - 621355968000000000) / 10000
+                    TokenExpire = (expire.AddDays(7).ToUniversalTime().Ticks - 621355968000000000) / 10000,
+                    RefreshTokenExpire = (expire.AddDays(14).ToUniversalTime().Ticks - 621355968000000000) / 10000
                 }
             };
         }

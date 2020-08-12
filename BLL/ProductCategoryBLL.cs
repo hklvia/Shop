@@ -63,5 +63,19 @@ namespace BLL
             dal.Update(model);
             return SaveChange();
         }
+
+        public override int Delete(int id)
+        {
+            dal.Delete(id);
+            var subCategory = dal.Search(x=>x.PID==id);
+            if (subCategory.Count > 0)  //下拉选择时选择属性值
+            {
+                foreach (var item in subCategory)
+                {
+                    dal.Delete(item);
+                }
+            }
+            return SaveChange();
+        }
     }
 }
