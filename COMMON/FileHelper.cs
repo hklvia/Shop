@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace COMMON
 {
@@ -12,7 +7,7 @@ namespace COMMON
         JPG = 255216,
         GIF = 7173,
         PNG = 13780,
-        WEBP=8273,
+        WEBP = 8273,
         VALIDFILE = 9999999,
         // 255216 jpg; 
         // 7173 gif; 

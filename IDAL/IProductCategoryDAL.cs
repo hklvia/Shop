@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace IDAL
 {
-    public interface IProductCategoryDAL:IBaseDAL<ProductCategory>
+    public interface IProductCategoryDAL : IBaseDAL<ProductCategory>
     {
         /// <summary>
         /// 获取某一节点下的所有子节点

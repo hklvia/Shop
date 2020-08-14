@@ -1,14 +1,9 @@
-﻿using API.Areas.HelpPage.Models;
-using API.Models;
+﻿using API.Models;
 using IBLL;
 using MODEL;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
-using System.Web.UI.WebControls;
 
 namespace API.Controllers
 {
@@ -67,7 +62,7 @@ namespace API.Controllers
             catch (Exception ex)
             {
                 return Error<PageModel<T>>("在查询分页数据过程中出现异常");
-            } 
+            }
         }
 
         //成功方法封装

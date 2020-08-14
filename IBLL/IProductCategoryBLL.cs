@@ -1,13 +1,9 @@
 ﻿using MODEL;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IBLL
 {
-    public interface IProductCategoryBLL:IBaseBLL<ProductCategory>
+    public interface IProductCategoryBLL : IBaseBLL<ProductCategory>
     {
         /// <summary>
         /// 获取某一节点下的所有子节点

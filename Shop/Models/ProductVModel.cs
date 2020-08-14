@@ -1,8 +1,5 @@
-﻿using System;
+﻿using MODEL;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using MODEL;
 
 namespace Shop.Models
 {

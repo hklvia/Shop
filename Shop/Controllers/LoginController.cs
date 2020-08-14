@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using BLL;
 using COMMON;
-using System.Web.Mvc;
 using IBLL;
-using BLL;
-using System.Net;
+using System;
+using System.Web;
+using System.Web.Mvc;
 using System.Web.Security;
 
 namespace Shop.Controllers
@@ -19,7 +16,7 @@ namespace Shop.Controllers
         public ActionResult Index()
         {
             //读cookies
-            if (Request.Cookies[FormsAuthentication.FormsCookieName] != null&&Request.Cookies[FormsAuthentication.FormsCookieName].Value != null && Request.Cookies[FormsAuthentication.FormsCookieName].Value != "")
+            if (Request.Cookies[FormsAuthentication.FormsCookieName] != null && Request.Cookies[FormsAuthentication.FormsCookieName].Value != null && Request.Cookies[FormsAuthentication.FormsCookieName].Value != "")
             {
                 //string userID = Server.UrlDecode(Request.Cookies[FormsAuthentication.FormsCookieName].Value);
                 //var result = BLL.Search(x => x.Name == username);

@@ -1,11 +1,11 @@
-﻿using DAL;
+﻿using COMMON;
+using DAL;
 using IBLL;
 using IDAL;
 using MODEL;
 using System;
 using System.Collections.Generic;
 using VMODEL;
-using COMMON;
 
 namespace BLL
 {

@@ -1,17 +1,14 @@
 ﻿using COMMON;
 using Constant;
+using Img.Models;
 using Qiniu.Http;
 using Qiniu.Storage;
 using Qiniu.Util;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
 using System.Configuration;
-using Newtonsoft.Json;
-using Img.Models;
+using System.IO;
+using System.Web.Mvc;
 
 namespace Img.Controllers
 {

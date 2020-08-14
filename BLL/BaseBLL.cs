@@ -1,10 +1,9 @@
-﻿using System;
+﻿using IDAL;
+using MODEL;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq.Expressions;
-using DAL;
-using IDAL;
-using MODEL;
 
 namespace BLL
 {
@@ -48,12 +47,8 @@ namespace BLL
             return dal.Search(where);
         }
 
-        //public virtual List<T> Search(int pageSize, int pageIndex, bool isDesc, Expression<Func<T, bool>> where)
-        //{
-        //    return dal.Search(pageSize, pageIndex, isDesc, where);
-        //}
-
-        public virtual List<T> Search<TKey>(int pageSize, int pageIndex, bool isDesc, Func<T, TKey> orderkey, Expression<Func<T, bool>> where, out int count) {
+        public virtual List<T> Search<TKey>(int pageSize, int pageIndex, bool isDesc, Func<T, TKey> orderkey, Expression<Func<T, bool>> where, out int count)
+        {
             return dal.Search<TKey>(pageSize, pageIndex, isDesc, orderkey, where, out count);
         }
 

@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
-using API.Models;
+﻿using API.Models;
 using BLL;
 using IBLL;
 using MODEL;
+using System;
+using System.Collections.Generic;
 
 namespace API.Controllers
 {

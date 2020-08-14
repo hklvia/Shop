@@ -1,9 +1,8 @@
-﻿using System;
-using MODEL;
-using DAL;
+﻿using DAL;
 using IBLL;
+using MODEL;
+using System;
 using System.Collections.Generic;
-using IDAL;
 using System.Linq;
 
 namespace BLL
@@ -67,7 +66,7 @@ namespace BLL
         public override int Delete(int id)
         {
             dal.Delete(id);
-            var subCategory = dal.Search(x=>x.PID==id);
+            var subCategory = dal.Search(x => x.PID == id);
             if (subCategory.Count > 0)  //下拉选择时选择属性值
             {
                 foreach (var item in subCategory)

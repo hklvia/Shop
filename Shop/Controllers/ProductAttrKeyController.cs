@@ -1,12 +1,10 @@
-﻿using Shop.Models;
-using System;
+﻿using BLL;
+using IBLL;
+using MODEL;
+using Shop.Models;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using MODEL;
-using IBLL;
-using BLL;
 
 namespace Shop.Controllers
 {
@@ -47,7 +45,7 @@ namespace Shop.Controllers
                 }
             }
 
-            return Json(new {state = true, msg = "添加成功！"});
+            return Json(new { state = true, msg = "添加成功！" });
         }
 
         public ActionResult GetByCategoryID(int draw, int categoryId)
@@ -63,7 +61,7 @@ namespace Shop.Controllers
         {
             var attrKey = attrKeyBLL.GetOne(id);
             var attrValue = attrValueBLL.GetAllByAttrKeyID(id);
-            var data = new {attrKey = attrKey, attrValue = attrValue};
+            var data = new { attrKey = attrKey, attrValue = attrValue };
             return Json(data, JsonRequestBehavior.AllowGet);
         }
 
@@ -95,7 +93,7 @@ namespace Shop.Controllers
             }
 
             var result = attrKeyBLL.Update(productAttrKey, attrValues);
-            return Json(new {state = result > 0, msg = result > 0 ? "修改成功！":"修改失败！"});
+            return Json(new { state = result > 0, msg = result > 0 ? "修改成功！" : "修改失败！" });
         }
 
         [HttpPost]

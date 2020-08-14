@@ -1,21 +1,18 @@
 ﻿using API.Models;
+using BLL;
+using COMMON;
+using IBLL;
+using JWT;
+using JWT.Algorithms;
+using JWT.Serializers;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
-using Newtonsoft.Json;
-using COMMON;
-using IBLL;
-using BLL;
-using JWT.Algorithms;
-using JWT;
-using JWT.Serializers;
-using MODEL;
-using Newtonsoft.Json.Linq;
 using VMODEL;
 
 namespace API.Controllers
@@ -116,9 +113,10 @@ namespace API.Controllers
 
         [HttpGet]
         [Route("api/auth/getTokenByRefreshToken")]
-        public ResponsMessage<TokenVModel> GetTokenByRefreshToken(string rToken) {
+        public ResponsMessage<TokenVModel> GetTokenByRefreshToken(string rToken)
+        {
             var uid = RedisHelper.Get(rToken);
-            if (uid==null)
+            if (uid == null)
             {
                 return new ResponsMessage<TokenVModel>()
                 {
@@ -128,14 +126,14 @@ namespace API.Controllers
             }
             CreateToken(uid, out string token, out string refreshToken);
             //将token存入redis(tkoen设置时间不宜过长,refreshToken过期时间一般是token的两倍)
-            var tokenSet= RedisHelper.Set(token, Int32.Parse(uid), expire.AddDays(7) - expire);
+            var tokenSet = RedisHelper.Set(token, Int32.Parse(uid), expire.AddDays(7) - expire);
             var refreshTokenSet = RedisHelper.Set(refreshToken, Int32.Parse(uid), expire.AddDays(14) - expire);
-            if (!tokenSet&& !refreshTokenSet)
+            if (!tokenSet && !refreshTokenSet)
             {
                 return new ResponsMessage<TokenVModel>()
                 {
                     Code = 500,
-                    Message= "获取token失败，请重新授权"
+                    Message = "获取token失败，请重新授权"
                 };
             }
             return new ResponsMessage<TokenVModel>()

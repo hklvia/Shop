@@ -3,7 +3,6 @@ using IBLL;
 using IDAL;
 using MODEL;
 using System.Collections.Generic;
-using VMODEL;
 
 namespace BLL
 {

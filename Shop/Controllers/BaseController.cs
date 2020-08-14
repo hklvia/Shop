@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Security;
-using BLL;
+﻿using BLL;
 using IBLL;
 using MODEL;
+using System;
+using System.Web.Mvc;
+using System.Web.Security;
 
 namespace Shop.Controllers
 {

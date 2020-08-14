@@ -1,15 +1,15 @@
-﻿using JWT;
+﻿using COMMON;
+using JWT;
 using JWT.Algorithms;
 using JWT.Exceptions;
 using JWT.Serializers;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
-using COMMON;
-using System.Net;
-using System.Collections.Generic;
 
 namespace API.Models
 {

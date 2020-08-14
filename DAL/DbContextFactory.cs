@@ -1,5 +1,5 @@
-﻿using System.Runtime.Remoting.Messaging;
-using MODEL;
+﻿using MODEL;
+using System.Runtime.Remoting.Messaging;
 
 namespace DAL
 {

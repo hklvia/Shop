@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Dynamic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Web;
-using System.Web.Mvc;
-using BLL;
-using COMMON;
+﻿using BLL;
 using IBLL;
 using MODEL;
-using Shop.Models;
 using Newtonsoft.Json;
+using Shop.Models;
+using System;
+using System.Collections.Generic;
+using System.Dynamic;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace Shop.Controllers
 {
@@ -187,7 +183,7 @@ namespace Shop.Controllers
         [HttpGet]
         public ActionResult Update(int id)
         {
-            var category =bll.GetOne(id);
+            var category = bll.GetOne(id);
             List<ProductCategory> categories = bll.GetAll();
             ProductCategoryUpdateVModel vModel = new ProductCategoryUpdateVModel() { Category = category, Categories = categories };
             return View(vModel);

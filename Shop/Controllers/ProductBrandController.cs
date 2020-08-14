@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using BLL;
+﻿using BLL;
 using IBLL;
 using MODEL;
-using Shop.Models;
+using System;
+using System.Web.Mvc;
 
 namespace Shop.Controllers
 {
@@ -32,7 +28,7 @@ namespace Shop.Controllers
         public ActionResult GetAll(int draw, int pageSize, int pageIndex)
         {
             int count;
-            var list = Bll.Search(pageSize, pageIndex,  false, x => x.ID, x => true, out count);
+            var list = Bll.Search(pageSize, pageIndex, false, x => x.ID, x => true, out count);
             //var count = Bll.GetCount(x => true);
             var result = new
             {

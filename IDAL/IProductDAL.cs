@@ -2,8 +2,8 @@
 
 namespace IDAL
 {
-    public interface IProductDAL:IBaseDAL<Product>
+    public interface IProductDAL : IBaseDAL<Product>
     {
-        
+
     }
 }

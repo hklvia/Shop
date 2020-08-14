@@ -20,15 +20,13 @@
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 //       佛祖保佑       永不宕机     永无BUG
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
 using BLL;
 using IBLL;
 using MODEL;
 using Shop.Models;
+using System;
+using System.Collections.Generic;
+using System.Web.Mvc;
 
 namespace Shop.Controllers
 {
@@ -61,7 +59,7 @@ namespace Shop.Controllers
             //var name = this.CurrentUser.Name;
 
             int count;
-            var list = Bll.Search(pageSize, pageIndex, false, x => x.ID, x => true,  out count);
+            var list = Bll.Search(pageSize, pageIndex, false, x => x.ID, x => true, out count);
             var result = new
             {
                 draw,
@@ -88,7 +86,9 @@ namespace Shop.Controllers
             var product = Bll.GetOne(id, out skus, out attrs);
             var result = new
             {
-                product,attrs,skus
+                product,
+                attrs,
+                skus
             };
             return Json(result, JsonRequestBehavior.AllowGet);
         }

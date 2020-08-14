@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 
 namespace Shop.Models
 {
-    public class LoginCheckAttribute: AuthorizeAttribute
+    public class LoginCheckAttribute : AuthorizeAttribute
     {
         /// <summary>
         /// 判断验证是否通过
@@ -16,7 +13,7 @@ namespace Shop.Models
         /// <returns></returns>
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
-            return httpContext.Request.Cookies[FormsAuthentication.FormsCookieName]!=null&&httpContext.Request.Cookies[FormsAuthentication.FormsCookieName].Value != null && httpContext.Request.Cookies[FormsAuthentication.FormsCookieName].Value != "";
+            return httpContext.Request.Cookies[FormsAuthentication.FormsCookieName] != null && httpContext.Request.Cookies[FormsAuthentication.FormsCookieName].Value != null && httpContext.Request.Cookies[FormsAuthentication.FormsCookieName].Value != "";
         }
 
         /// <summary>

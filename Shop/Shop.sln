@@ -33,7 +33,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebFormDemo", "..\WebFormDe
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{D5DC951E-8206-4B8C-AB1C-62340D63A662}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebDemo1", "..\WebDemo1\WebDemo1.csproj", "{B9178532-EF67-4AB2-9F5A-821BD50114E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebDemo1", "..\WebDemo1\WebDemo1.csproj", "{B9178532-EF67-4AB2-9F5A-821BD50114E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

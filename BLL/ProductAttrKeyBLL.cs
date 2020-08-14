@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DAL;
 using IBLL;
-using MODEL;
 using IDAL;
-using DAL;
-using VMODEL;
+using MODEL;
+using System;
+using System.Collections.Generic;
 using System.Linq.Expressions;
+using VMODEL;
 
 namespace BLL
 {
@@ -35,7 +32,7 @@ namespace BLL
                 vModel.ID = item.ID;
                 vModel.AttrName = item.AttrName;
                 vModel.EnterType = item.EnterType;
-                vModel.IsImg= item.IsImg;
+                vModel.IsImg = item.IsImg;
                 vModel.AttrValues = new List<string>();
                 var attrvalues = dalAttrValue.Search(x => x.ProductAttrKeyID == item.ID);
                 foreach (var valueItem in attrvalues)

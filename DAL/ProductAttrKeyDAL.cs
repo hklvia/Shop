@@ -1,10 +1,7 @@
-﻿using System;
+﻿using IDAL;
+using MODEL;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using IDAL;
-using MODEL;
 
 namespace DAL
 {
