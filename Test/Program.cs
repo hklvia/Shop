@@ -6,15 +6,51 @@ namespace Test
 {
     class Program
     {
+        //单例模式
+        //private static Singleton instance = null;
+        //private static readonly object padlock = new object();
+        //Singleton()
+        //{
+        //}
+        //public static Singleton Instance
+        //{
+        //    get
+        //    {
+        //        lock (padlock)
+        //        {
+        //            if (instance == null)
+        //            {
+        //                instance = new Singleton();
+        //            }
+        //            return instance;
+        //        }
+        //    }
+        //}
+        //单例模式2
+        //private static readonly Singleton instance = new Singleton();
+        //static Singleton()
+        //{
+        //}
+        //private Singleton()
+        //{
+        //}
+        //public static Singleton Instance
+        //{
+        //    get
+        //    {
+        //        return instance;
+        //    }
+        //}
+
         static void Main(string[] args)
         {
             //c#实现异步编程
             //1、通过线程
             //声明一个线程
-            Thread thread = new Thread(F1);
-            thread.Start();//启动一个线程
-            //线程阻塞
-            //thread.Join();//主线程会等待thread线程执行完毕后才会继续往下执行
+            //Thread thread = new Thread(F1);
+            //thread.Start();//启动一个线程
+                           //线程阻塞
+                           //thread.Join();//主线程会等待thread线程执行完毕后才会继续往下执行
 
             // 2 task
             //Task task1 = Task.Run(() =>
@@ -44,11 +80,26 @@ namespace Test
             //Task<string> ts = 
             //F1();
             //Console.WriteLine(ts.Result);
-            for (int i = 0; i < 50; i++)
+            //for (int i = 0; i < 50; i++)
+            //{
+            //    Console.WriteLine("1");
+            //}
+
+            //1:04
+            for (int i = 1; i <= 30; i++)
             {
-                Console.WriteLine("1");
+                Console.WriteLine(F(i));
             }
             Console.ReadLine();
+        }
+
+        static int F(int n)
+        {
+            if (n == 1 || n == 2)
+            {
+                return 1;
+            }
+            return F(n - 2) + F(n - 1);
         }
 
         //async：标识该方法内部至少会有一个异步任务

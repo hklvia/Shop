@@ -122,17 +122,5 @@ E:\学校\课程\Asp.net云平台开发\Project\WebDemo1\bin\Debug\netcoreapp3.1
 E:\学校\课程\Asp.net云平台开发\Project\WebDemo1\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
 E:\学校\课程\Asp.net云平台开发\Project\WebDemo1\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 E:\学校\课程\Asp.net云平台开发\Project\WebDemo1\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
-E:\学校\课程\Asp.net云平台开发\Project\WebDemo1\bin\Debug\netcoreapp3.1\EntityFramework.SqlServer.dll
-E:\学校\课程\Asp.net云平台开发\Project\WebDemo1\bin\Debug\netcoreapp3.1\EntityFramework.dll
-E:\学校\课程\Asp.net云平台开发\Project\WebDemo1\bin\Debug\netcoreapp3.1\System.CodeDom.dll
-E:\学校\课程\Asp.net云平台开发\Project\WebDemo1\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
-E:\学校\课程\Asp.net云平台开发\Project\WebDemo1\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
-E:\学校\课程\Asp.net云平台开发\Project\WebDemo1\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
-E:\学校\课程\Asp.net云平台开发\Project\WebDemo1\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
-E:\学校\课程\Asp.net云平台开发\Project\WebDemo1\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
-E:\学校\课程\Asp.net云平台开发\Project\WebDemo1\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
-E:\学校\课程\Asp.net云平台开发\Project\WebDemo1\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
-E:\学校\课程\Asp.net云平台开发\Project\WebDemo1\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-E:\学校\课程\Asp.net云平台开发\Project\WebDemo1\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 E:\学校\课程\Asp.net云平台开发\Project\WebDemo1\obj\Debug\netcoreapp3.1\WebDemo1.csproj.CoreCompileInputs.cache
 E:\学校\课程\Asp.net云平台开发\Project\WebDemo1\obj\Debug\netcoreapp3.1\WebDemo1.MvcApplicationPartsAssemblyInfo.cache

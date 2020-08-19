@@ -37,7 +37,7 @@ namespace BLL
         }
 
         public virtual List<T> GetAll()
-        {
+        {       
             return dal.GetAll();
         }
 
