@@ -85,7 +85,6 @@ namespace Test
             //    Console.WriteLine("1");
             //}
 
-            //1:04
             for (int i = 1; i <= 30; i++)
             {
                 Console.WriteLine(F(i));
