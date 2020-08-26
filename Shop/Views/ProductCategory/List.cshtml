@@ -114,6 +114,7 @@
                             setTimeout(function () {
                                 callback(result);
                             }, 60);
+                            document.body.scrollTop = document.documentElement.scrollTop = 0;
                         }
                     });
                 },
@@ -163,57 +164,6 @@
 
             });
         });
-
-        //function Delete() {
-        //    if (!delID && !delImg) {
-        //        return;
-        //    }
-        //    var formData = new FormData();
-        //    formData.append("ID", delID);
-        //    formData.append("Img", delImg);
-
-        //    $.ajax({
-        //        url: "/ProductCategory/Delete",
-        //        type: 'POST',
-        //        data: formData,
-        //        async: false,
-        //        dataType: "Json",
-        //        // 告诉jQuery不要去处理发送的数据
-        //        processData: false,
-        //        // 告诉jQuery不要去设置Content-Type请求头
-        //        contentType: false,
-
-        //        success: function (data) {
-        //            if (data.state) {
-        //                $("#del-modal").modal("hide");
-        //                //toastr.success(data.msg);
-        //                Swal.fire({
-        //                    position: 'top-end',
-        //                    icon: 'success',
-        //                    title: data.msg,
-        //                    showConfirmButton: false,
-        //                    timer: 1500
-        //                })
-        //                //刷新datatable数据
-        //                $('#table').DataTable().ajax.reload();
-        //            }
-        //            else {
-        //                //toastr.error(data.msg);
-        //                Swal.fire({
-        //                    icon: 'error',
-        //                    title: data.msg
-        //                })
-        //            }
-        //        },
-        //        error: function (data) {
-        //            //toastr.error(data.msg);
-        //            Swal.fire({
-        //                icon: 'error',
-        //                title: data.msg
-        //            })
-        //        }
-        //    });
-        //}
 
         function alertDelModal(ID) {
             //delID = ID;

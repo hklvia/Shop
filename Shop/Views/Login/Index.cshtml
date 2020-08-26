@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>.Net后台管理系统 | 登录</title>
+    <title>电商管理系统 | 登录</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -27,9 +27,11 @@
         .login-page {
             background: #e7ffff;
         }
+
         .login-box {
             width: auto;
         }
+
         .boder {
             border-radius: 8px;
             border: 1px solid #dadce0;
@@ -42,22 +44,26 @@
             background: #fff;
             padding: 20px 40px 27px;
         }
+
         .UserInput {
             height: 56px;
             border-radius: 4px;
             color: #202124;
         }
+
         .inputClass {
             font-size: 18px;
             height: 100%;
             padding: 13px 16px;
         }
-        .inputClass:focus {
-            border: 2px solid #1a73e8;
-        }
+
+            .inputClass:focus {
+                border: 2px solid #1a73e8;
+            }
+
         .error {
             font-size: 13px;
-            color:red;
+            color: red;
         }
     </style>
 </head>
@@ -66,7 +72,7 @@
         <div class="card boder">
             <div class="card-body login-card-body">
                 <div class="login-logo">
-                    <a href="#"><b>Asp</b>.Net</a>
+                    <a href="#"><b>电商系统</b>后台登陆</a>
                 </div>
                 <p class="login-box-msg">登录以进行您的操作</p>
 
@@ -95,7 +101,7 @@
                     </div>
                 </form>
 
-                <div class="social-auth-links text-center mb-3">
+                @*<div class="social-auth-links text-center mb-3">
                     <p>- OR -</p>
                     <a href="#" class="btn btn-block btn-primary">
                         <i class="fab fa-facebook mr-2"></i> 使用 Facebook 登录
@@ -103,10 +109,10 @@
                     <a href="#" class="btn btn-block btn-danger">
                         <i class="fab fa-google-plus mr-2"></i> 使用 Google+ 登录
                     </a>
-                </div>
+                </div>*@
                 <!-- /.social-auth-links -->
 
-                <p class="mb-1" style="margin-top:20px;">
+                <p class="mb-1" style="margin-top:30px;">
                     <a href="forgot-password.html">忘记了您的密码？</a>
                     <a href="register.html" class="text-center" style="float:right;">创建账号</a>
                 </p>
