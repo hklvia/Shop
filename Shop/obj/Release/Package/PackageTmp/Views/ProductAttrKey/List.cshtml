@@ -1,0 +1,445 @@
+﻿
+@{
+    ViewBag.Title = "Sku";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>商品属性设置</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/ProductCategory/List">首页</a></li>
+                    <li class="breadcrumb-item active">商品属性</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+
+                <div class="card-header">
+                    <button class="btn btn-outline-primary" id="alertAddModal">添加属性</button>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start  action="/ProductCategory/Add"-->
+                <div class="card-body">
+
+                    <table style="width: 100%" id="table" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                        <thead>
+                            <tr role="row">
+                                <th>序号</th>
+                                <th>属性名称</th>
+                                @*<th>规格值</th>*@
+                                <th>录入方式</th>
+                                <th>排序号</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                    </table>
+
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+
+    <!--添加弹出框-->
+    <div class="modal fade" id="add-modal" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 id="add-modal-title" class="modal-title">添加属性</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label for="AttrName" class="col-sm-3 col-form-label">属性名称:</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="AttrName" id="AttrName" class="form-control" placeholder="请输入属性名称" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="OrderNum" class="col-sm-3 col-form-label">录入方式:</label>
+                        <div class="col-sm-9">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="icheck-primary">
+                                        <input type="radio" id="r1" name="enterType" checked="" value="1">
+                                        <label for="r1" style="font-weight:normal">
+                                            手动录入
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="icheck-primary">
+                                        <input type="radio" id="r2" name="enterType" value="2">
+                                        <label for="r2" style="font-weight:normal">
+                                            下拉选择
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">属性值:</label>
+                        <div class="col-sm-9" id="attrValues">
+                            <div>
+                                <button type="button" name="OrderNum" id="addAttrValue" class="btn btn-outline-primary">点击添加</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="OrderNum" class="col-sm-3 col-form-label">排序号</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="OrderNum" id="OrderNum" class="form-control" placeholder="请输入排序号" value="1" />
+                        </div>
+                    </div>
+
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-outline-primary btn-sm" id="btnOK">提交</button>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+    <!--删除弹出框-->
+    <!--<div class="modal fade" id="del-modal">
+        <div class="modal-dialog">
+            <div class="modal-content bg-danger">
+                <div class="modal-header">
+                    <h4 class="modal-title">警告！</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p style="font-size:16px">确认删除此条数据？</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-light" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-outline-light" onclick="Delete()">确定</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+    <!--</div>-->
+    <!-- /.modal-dialog -->
+    <!--</div>-->
+</section>
+@section js{
+    <script>
+        var delID = null;
+
+        $.getUrlParam = function (name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]); return null;
+        };
+        var editID = null;
+        var opreateFlag = 1; //1为添加，2为修改
+        function delAttrValue(obj) {
+            $(obj).parent().parent().remove();
+        }
+
+        $(function () {
+            $("#table").DataTable({
+                "paging": false,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": false,
+                "info": false,
+                "autoWidth": true,
+                "processing": true,
+                "language": {
+                    "zeroRecords": "没有结果",
+                    "processing": "请求数据中....."
+                },
+                "serverSide": true,
+                "ajax": function (data, callback, settings) {
+                    var param = {};
+                    param.draw = data.draw;
+                    param.categoryId = $.getUrlParam('id');
+                    $.ajax({
+                        type: "POST",
+                        url: "/ProductAttrKey/GetByCategoryID",
+                        cache: false,
+                        data: param,
+                        dataType: "json",
+                        success: function (result) {
+                            setTimeout(function () {
+                                callback(result);
+                            }, 50);
+                        }
+                    });
+                },
+
+                columns: [
+                    { "data": "ID" },
+                    { "data": "AttrName" },
+                    {
+                        "data": function (data) {
+                            if (data.EnterType == "1") {
+                                return "手动录入";
+                            } else {
+                                return "下拉选择";
+                            }
+                        }
+                    },
+                    { "data": "OrderNum" },
+                    {
+                        "data": function (data) {
+                            var html = "<button onclick=\"alertEditModal(" + data.ID + ")\" class=\"btn btn-outline-primary btn-sm\">编辑</button>";
+                            html += "&nbsp;&nbsp;";
+                            html += "<a href=\"#\" class=\"btn btn-outline-danger btn-sm\"  onclick=\"alertDelModal(" + data.ID + ");\">删除</a>";
+                            return html;
+                        }
+                    }
+                ]
+            });
+        });
+        //function Delete() {
+        //    if (!delID) {
+        //        return;
+        //    }
+        //    var formData = new FormData();
+        //    formData.append("ID", delID);
+        //    $.ajax({
+        //        url: "/ProductAttrKey/Delete",
+        //        type: "POST",
+        //        data: formData,
+        //        async: false,
+        //        dataType: "Json",
+        //        // 告诉jQuery不要去处理发送的数据
+        //        processData: false,
+        //        // 告诉jQuery不要去设置Content-Type请求头
+        //        contentType: false,
+
+        //        success: function (data) {
+        //            if (data.state) {
+        //                $("#del-modal").modal("hide");
+        //                //toastr.success(data.msg);
+        //                Swal.fire({
+        //                    position: 'top-end',
+        //                    icon: 'success',
+        //                    title: data.msg,
+        //                    showConfirmButton: false,
+        //                    timer: 1500
+        //                })
+        //                //刷新datatable数据
+        //                $('#table').DataTable().ajax.reload();
+        //            }
+        //            else {
+        //                //toastr.error(data.msg);
+        //                Swal.fire({
+        //                    icon: 'error',
+        //                    title: data.msg
+        //                })
+        //            }
+        //        },
+        //        error: function (data) {
+        //            //toastr.error(data.msg);
+        //            Swal.fire({
+        //                icon: 'error',
+        //                title: data.msg
+        //            })
+        //        }
+        //    });
+        //}
+
+        $(function () {
+            $("#alertAddModal").click(function () {
+                opreateFlag = 1;
+                $("#add-modal").modal();
+                //修改标题
+                $("#add-modal-title").text("属性添加");
+                $("#AttrName").val("");
+                $("#OrderNum").val("");
+                $("input[name='enterType'][value=1]").prop("checked", true);
+                $("#attrValues div:gt(1)").remove();
+
+            });
+            //点击添加属性值
+            $("#addAttrValue").click(function () {
+                var html = '<div class="row" style="margin-top:10px;"><div class="col-sm-9" ><input type="text" class="form-control" /></div ><div class="col-sm-3"><button class="btn btn-outline-danger" onclick="delAttrValue(this);">删除</button></div></div >';
+                $("#attrValues").append(html);
+            });
+
+            $("#btnOK").click(function () {
+                //1 收集数据
+                var AttrName = $("#AttrName").val();
+                var OrderNum = $("#OrderNum").val();
+                //获取 radio选中项的值
+                var EnterType = $("input[name='enterType']:checked").val();
+
+                //获取所有的属性值
+                //each 遍历 相当于for循环
+                var attrValues = []
+                $("#attrValues input").each(function () {
+                    attrValues.push($(this).val())
+                })
+                var ProductCategoryID = $.getUrlParam('id');
+                var data = {
+                    AttrName: AttrName,
+                    OrderNum: OrderNum,
+                    EnterType: EnterType,
+                    AttrValues: attrValues,
+                    ProductCategoryID: ProductCategoryID
+                };
+                var url = "/ProductAttrKey/Add";
+                if (opreateFlag == 2) {
+                    data.ID = editID;
+                    url = "/ProductAttrKey/Edit";
+                }
+                $.ajax({
+                    url: url,
+                    type: "POST",
+                    data: JSON.stringify(data),
+                    dataType: "json",
+                    contentType: "application/json;charset=utf-8",
+                    success: function (data) {
+                        if (data.state) {
+                            //toastr.success(data.msg);
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: data.msg,
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                            //刷新datatable数据
+                            $('#table').DataTable().ajax.reload();
+                            $("#AttrName").val("");
+                            $("#OrderNum").val("");
+                            $("input[name='enterType'][value=1]").prop("checked", true);
+                            $("#attrValues div:gt(1)").remove();
+                        }
+                        else {
+                            //toastr.error(data.msg);
+                            Swal.fire({
+                                icon: 'error',
+                                title: data.msg
+                            })
+                        }
+                    },
+                    error: function (data) {
+                        //toastr.error('操作失败！');
+                        Swal.fire({
+                            icon: 'error',
+                            title: "网络连接异常！"
+                        })
+                    }
+                });
+
+            });
+
+        });
+
+        function alertEditModal(id) {
+            editID = id;
+            opreateFlag = 2;
+            $("#add-modal").modal();
+            $("#add-modal-title").text("属性修改");
+
+            $.ajax({
+                type: "GET",
+                url: "/ProductAttrKey/GetOne",
+                cache: false,
+                data: { id: id },
+                dataType: "json",
+                success: function (result) {
+                    $("#AttrName").val(result.attrKey.AttrName);
+                    $("#OrderNum").val(result.attrKey.OrderNum);
+                    $("input[name='enterType'][value=" + result.attrKey.EnterType + "]").prop("checked", "checked");
+                    $('#attrValues div:gt(1)').remove();
+                    result.attrValue.map(function (v) {
+                        var html = '<div class="row" style="margin-top:10px;"><div class="col-sm-9" ><input type="text" class="form-control" value = ' + v.AttrValue + '></div ><div class="col-sm-3"><button class="btn btn-outline-danger" onclick="delAttrValue(this);">删除</button></div></div >';
+                        $("#attrValues").append(html);
+                    });
+                }
+            });
+        }
+        function alertDelModal(ID) {
+            //delID = ID;
+            //$("#del-modal").modal();
+
+            Swal.fire({
+                title: "你确认要删除吗?",
+                text: "此操作不可撤销!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#d33",
+                cancelButtonColor: "#3085d6",
+                confirmButtonText: "删除",
+                cancelButtonText: '取消'
+            }).then((result) => {
+                if (result.value) {
+                    //if (!delID && !delImg) {
+                    //    return;
+                    //}
+                    //var formData = new FormData();
+                    //formData.append("ID", delID);
+                    //formData.append("Img", delImg);
+
+                    $.ajax({
+                        url: "/ProductAttrKey/Delete",
+                        type: 'POST',
+                        data: { ID: ID },
+                        async: false,
+                        dataType: "json",
+                        // 告诉jQuery不要去处理发送的数据
+                        //processData: false,
+                        //// 告诉jQuery不要去设置Content-Type请求头
+                        //contentType: false,
+
+                        success: function (data) {
+                            if (data.state) {
+                                //$("#del-modal").modal("hide");
+                                Swal.fire(data.msg, "数据已成功删除。", "success");
+                                //刷新datatable数据
+                                $('#table').DataTable().ajax.reload();
+                                //Swal.fire({
+                                //    position: 'top-end',
+                                //    icon: 'success',
+                                //    title: data.msg,
+                                //    showConfirmButton: false,
+                                //    timer: 1500
+                                //})
+                            }
+                            else {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: data.msg
+                                })
+                            }
+                        },
+                        error: function (data) {
+                            Swal.fire({
+                                icon: 'error',
+                                title: "网络连接异常！"
+                            })
+                        }
+                    });
+                }
+            });
+        }
+    </script>
+}

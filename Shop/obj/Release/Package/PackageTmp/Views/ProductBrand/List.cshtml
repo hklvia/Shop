@@ -1,0 +1,228 @@
+﻿
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>商品分类列表</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">首页</a></li>
+                    <li class="breadcrumb-item active">商品分类列表</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card ">
+                <!-- /.card-header -->
+                <!-- form start -->
+                <div class="card-header">
+                    <a class="btn btn-outline-primary" href="/ProductBrand/add">添加商品品牌</a>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table style="width: 100%" id="table" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                                <thead>
+                                    <tr role="row">
+                                        <th>序号</th>
+                                        <th>品牌名称</th>
+                                        <th>品牌首字母</th>
+                                        <th>品牌LOGO</th>
+                                        <th>品牌专区大图</th>
+                                        <th>品牌故事</th>
+                                        <th>排序号</th>
+                                        <th>是否显示</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.card-body -->
+            </div>
+        </div>
+    </div>
+
+</section>
+@section js{
+    <script>
+        $(function () {
+            $("#table").DataTable({
+                "lengthChange": false,//不显示每页更改大小的下拉框
+                "searching": false,//不显示搜索框
+                "paging": true,//启用分页
+                "info": true,//显示备注信息
+                "ordering": false,//禁止排序
+                "autoWidth": true,//宽度自适应
+                "processing": true,//开启加载等待
+                "iDisplayLength": 6,//每页的大小（显示条数）
+                "pagingType": "full_numbers",
+                //配置中文提示
+                "language": {
+                    "processing": "请求数据中...",//加载数据时的提示信息
+                    "lengthMenu": "显示 _MENU_ 项结果",
+                    "zeroRecords": "没有匹配结果",//无数据时的提示信息
+                    "info": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+                    "infoEmpty": "显示第 0 至 0 项结果，共 0 项",
+                    "infoFiltered": "(由 _MAX_ 项结果过滤)",
+                    "infoPostFix": "",
+                    "search": "搜索:",
+                    "searchPlaceholder": "搜索...",
+                    "url": "",
+                    "emptyTable": "表中数据为空",
+                    "loadingRecords": "载入中...",
+                    "infoThousands": ",",
+                    "paginate": {
+                        "first": "首页",
+                        "previous": "上页",
+                        "next": "下页",
+                        "last": "尾页"
+                    },
+                    "aria": {
+                        "sortAscending": ": 以升序排列此列",
+                        "sortDescending": ": 以降序排列此列"
+                    },
+                    "decimal": "-",
+                    "thousands": "."
+                },
+                "serverSide": true,//开启服务端模式(数据从后台获取)
+                "ajax": function (data, callback, settings) {
+                    //封装请求参数
+                    var param = {};
+                    param.draw = data.draw;//服务端直接返回就可以,不需要更改
+                    param.pageSize = data.length;//每页的大小
+                    param.pageIndex = data.start / data.length + 1;//页码
+
+                    $.ajax({
+                        type: "POST",//请求方式
+                        url: "/ProductBrand/GetAll",//请求地址
+                        cache: false,//禁用缓存
+                        data: param,//传入组装的参数
+                        dataType: "json",//期望服务端返回的数据格式(在回调函数中会自动将json串转化成js对象)
+                        success: function (result) {
+                            setTimeout(function () {
+                                callback(result);//渲染数据(固定写法)
+                            }, 60);
+                        }
+                    });
+                },
+                //设置数据映射
+                columns: [
+                    { "data": "ID" },
+                    { "data": "BrandName" },
+                    { "data": "BrandInitials" },
+                    {
+                        "data": function (data) {
+                            var html = "<img src=\"" + JSON.parse(data.BrandLogo).Url + "\" width=\"50\"/>";
+                            return html;
+                        }
+                    },
+                    {
+                        "data": function (data) {
+                            var html = "<img src=\"" + JSON.parse(data.BrandImg).Url + "\" width=\"50\"/>";
+                            return html;
+                        }
+                    },
+                    { "data": "BrandStory" },
+                    { "data": "OrderNum" },
+                    {
+                        "data": function (data) {
+                            if (data.IsDisplay == "1") {
+                                return "是"
+                            } else {
+                                return "否"
+                            }
+                        }
+                    },
+                    {
+                        "data": function (data) {
+                            var html = "<a href=\"/ProductBrand/Update?id=" + data.ID + "\" class=\"btn btn-outline-success btn-sm\">编辑</a>";
+                            html += "&nbsp;&nbsp;"
+                            html += "<a href=\"#\" onclick=\"alertDelModal(" + data.ID + ");\"  class = \"btn btn-outline-danger btn-sm\">删除</a>";
+                            return html;
+                        }
+                    }
+
+                ]
+            });
+        });
+        function alertDelModal(ID, Img) {
+            //delID = ID;
+            //delImg = Img;
+            //$("#del-modal").modal();
+            Swal.fire({
+                title: "你确认要删除吗?",
+                text: "此操作不可撤销!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#d33",
+                cancelButtonColor: "#3085d6",
+                confirmButtonText: "删除",
+                cancelButtonText: '取消'
+            }).then((result) => {
+                if (result.value) {
+                    //if (!delID && !delImg) {
+                    //    return;
+                    //}
+                    //var formData = new FormData();
+                    //formData.append("ID", delID);
+                    //formData.append("Img", delImg);
+
+                    $.ajax({
+                        url: "/ProductBrand/Delete",
+                        type: 'POST',
+                        data: { id: ID },
+                        async: false,
+                        dataType: "json",
+                        // 告诉jQuery不要去处理发送的数据
+                        //processData: false,
+                        //// 告诉jQuery不要去设置Content-Type请求头
+                        //contentType: false,
+
+                        success: function (data) {
+                            if (data.state) {
+                                //$("#del-modal").modal("hide");
+                                Swal.fire(data.msg, "数据已成功删除。", "success");
+                                //刷新datatable数据
+                                $('#table').DataTable().ajax.reload();
+                                //Swal.fire({
+                                //    position: 'top-end',
+                                //    icon: 'success',
+                                //    title: data.msg,
+                                //    showConfirmButton: false,
+                                //    timer: 1500
+                                //})
+                            }
+                            else {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: data.msg
+                                })
+                            }
+                        },
+                        error: function (data) {
+                            Swal.fire({
+                                icon: 'error',
+                                title: "网络连接异常！"
+                            })
+                        }
+                    });
+
+
+                }
+            });
+        }
+    </script>
+}

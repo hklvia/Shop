@@ -1,0 +1,269 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model ProductCategoryUpdateVModel
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>商品分类添加</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">首页</a></li>
+                    <li class="breadcrumb-item active">商品分类</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-info">
+                <!-- /.card-header -->
+                <!-- form start  action="/ProductCategory/Add"-->
+                <form method="post" class="form-horizontal" enctype="multipart/form-data" id="form">
+                    <div class="card-body">
+                        <div class="form-group row">
+                            <label for="Name" class="col-sm-2 col-form-label">分类名称：</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" onchange="KeyWordsAutoFill()" id="Name" name="Name" placeholder="请输入分类名称">
+                            </div>
+                        </div>
+
+                        @*<div class="form-group row">
+            <label for="PID" class="col-sm-2 col-form-label">父级分类：</label>
+            <div class="col-sm-10">
+                <select class="form-control select2 select2-hidden-accessible" name="PID" id="category_pid" style="width:100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                    <option value="0">一级分类</option>
+                    @foreach (var item in Model.Categories)
+                    {
+                        <option value="@item.ID">@item.Name</option>
+                    }
+                </select>
+            </div>
+        </div>*@
+
+                        <div class="form-group row">
+                            <label for="Name" class="col-sm-2 col-form-label">父级分类：</label>
+                            <div class="col-sm-10" style="position:relative;">
+                                <div style="width:100%;">
+                                    <input type="text" id="Category" onclick="disTreeSelect()" class="form-control" placeholder="点击选择父级分类" autoComplete="off">
+                                </div>
+                                <div id="tree" style="display:none;position:absolute;top:39px;z-index:99999;left:0;right:0;padding:0 7px;"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="OrderNum" class="col-sm-2 col-form-label">排序号：</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="OrderNum" id="OrderNum" class="form-control" placeholder="请输入排序号" value="1" />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="Img" class="col-sm-2 col-form-label">分类图片：</label>
+                            <div class="col-sm-10">
+                                <input type="file" name="Img" id="Img" />
+                            </div>
+                        </div>
+                        @*<div class="form-group row">
+            <label for="Img" class="col-sm-2 col-form-label">图片链接：</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="Img" name="Img" placeholder="请输入图片">
+            </div>
+        </div>*@
+                        <div class="form-group row">
+                            <label for="KeyWords" class="col-sm-2 col-form-label">关键词：</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="KeyWords" name="KeyWords" placeholder="请输入分类关键词">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary">提交</button>
+                        <a class="btn btn-default float-right" href="/ProductCategory/List" style="margin-left:1px">返 回</a>
+                    </div>
+                    <!-- /.card-footer -->
+                </form>
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+</section>
+ 
+@section js{
+    <script type="text/javascript">
+        //点击输入框展开下拉树
+        function disTreeSelect() {
+            $("#tree").show()
+        }
+
+        //加载下拉树数据
+        function loadSelectTree() {
+            $.ajax({
+                //指定请求地址
+                url: "/ProductCategory/GetAll1",
+                //指定请求方式：GET、POST
+                type: "POST",
+                //期望服务端返回的数据格式(在回调函数中会自动将json串转化成js对象)
+                dataType: "json",
+                async: false,
+                //当请求成功之后的回调函数，一般在接收服务端返回的数据
+                // {"State":true} (自动将json串转化成js对象，{State:true})
+                success: function (result) {//result参数代表服务端返回的数据
+                    $('#tree').treeview({
+                        data: eval("(" + result + ")"),
+                        levels: 1, //设置显示几级节点
+                        onNodeSelected: function (event, data) {
+                            $(this).hide();
+                            $("#Category").val(data.text);
+                            PID = data.tags[0]
+                        }
+                    });
+                }
+            })
+        }
+
+        function KeyWordsAutoFill() {
+            $("#KeyWords").val($("#Name").val())
+            KeyWordsAutoFill = function () { };
+        }
+
+        var PID = 0;
+        var Img;
+        $(function () {
+            //加载下拉树数据
+            loadSelectTree();
+
+            var myDiv = document.getElementById("tree");
+            document.addEventListener("click", function () {
+                myDiv.style.display = "none";
+            }, true);
+            myDiv.addEventListener("click", function (event) {
+                event = event || window.event;
+                $("#tree").show()
+            }, true);
+
+            //$('#tree').on('nodeSelected', function (event, data) {
+            //    $(this).hide();
+            //    $("#Category").val(data.text);
+            //    PID = data.tags[0]
+            //});
+
+            //文件上传初始化
+            $('#Img').fileinput({
+                language: 'zh',
+                allowedFileExtensions: ['jpg', 'jpeg', 'png', 'gif'],
+                showUpload: true,
+                browseClass: "btn btn-primary",
+                dropZoneEnabled: false,
+                uploadUrl: "http://localhost:50069/Img/Upload",
+                uploadExtraData: { imgType: 'ProductCategoryImg' }
+            });
+
+            //文件上传成功回调函数
+            $("#Img").on('fileuploaded', function (event, data, previewId, index) {//异步上传成功结果处理
+                Img = JSON.stringify(data.response[0]);
+            });
+
+            //数据验证
+            $('form').validate({
+                rules: {
+                    Name: {
+                        required: true
+                    },
+                    OrderNum: {
+                        required: true,
+                        digits: true
+                    },
+                    KeyWords: {
+                        required: true
+                    }
+                },
+                messages: {
+                    Name: {
+                        required: "分类名称必须填写"
+                    },
+                    OrderNum: {
+                        required: "排序号必须填写",
+                        digits: "排序号必须是数字类型"
+                    },
+                    KeyWords: {
+                        required: "分类关键词必须填写"
+                    },
+                },
+                errorElement: 'span',
+                errorPlacement: function (error, element) {
+                    error.addClass('invalid-feedback');
+                    element.closest('.col-sm-10').append(error);
+
+                },
+                highlight: function (element, errorClass, validClass) {
+                    $(element).addClass('is-invalid');
+                },
+                unhighlight: function (element, errorClass, validClass) {
+                    $(element).removeClass('is-invalid');
+                },
+                //验证通过后的回调函数
+                submitHandler: function (form) {
+                    var formData = new FormData();//创建FormData对象，以键值对的方式拼接form表单数据（multipart/form-data，图片媒体文件）
+                    formData.append("Name", $("#Name").val());
+                    formData.append("Pid", PID);
+                    formData.append("OrderNum", $("#OrderNum").val());
+                    formData.append("Img", Img);
+                    //formData.append("Img", $("#Img").val());
+                    formData.append("KeyWords", $("#KeyWords").val());
+
+                    $.ajax({
+                        url: "/ProductCategory/Add",
+                        type: 'POST',
+                        data: formData,
+                        async: false,
+                        dataType: "json",
+
+                        // 告诉jQuery不要去处理发送的数据
+                        processData: false,
+                        // 告诉jQuery不要去设置Content-Type请求头
+                        contentType: false,
+
+                        success: function (data) {
+                            if (data.state) {
+                                //toastr.success(data.msg)
+                                Swal.fire({
+                                    position: 'top-end',
+                                    icon: 'success',
+                                    title: data.msg,
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                })
+                                document.getElementById("form").reset()
+                                loadSelectTree()
+                            }
+                            else {
+                                //toastr.error(data.msg);
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: data.msg
+                                })
+                            }
+                        },
+                        error: function (data) {
+                            //toastr.error(data.msg);
+                            Swal.fire({
+                                icon: 'error',
+                                title: "网络连接异常！"
+                            })
+                        }
+                    });
+                }
+            });
+        })
+    </script>
+}

@@ -564,6 +564,7 @@
     <Content Include="Views\ProductBrand\List.cshtml" />
     <Content Include="Views\ProductBrand\Update.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

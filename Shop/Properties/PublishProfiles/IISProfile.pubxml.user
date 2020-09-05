@@ -1,0 +1,1634 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+此文件由 Web 项目的发布/打包过程使用。可以通过编辑此 MSBuild 文件
+自定义此过程的行为。为了解与此相关的更多内容，请访问 https://go.microsoft.com/fwlink/?LinkID=208121。 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA7s98gDkARUepPKZnd4ZKmAAAAAACAAAAAAAQZgAAAAEAACAAAABI3bV/87ooKwwZpkyIby79XSkuZAoigPdqvTBWt+G6HwAAAAAOgAAAAAIAACAAAAArKjBt4DoY6ufoGIqv2KXp7wABaeY9KvGmngpYZ0ncfSAAAAD8wiwXdurE1Nw/t97/P/AAyJVIoS2nKDOai/q0+YqVhUAAAADtd5MkhHYZivIWsv7s/ElhS9VqR7ZV/TLxoN2/Q3l4tv9xRacAIvIqb4G0r/uP/AVllwE5a24YocjJ9ZGitZVT</EncryptedPassword>
+    <_PublishTargetUrl>C:\Users\FRF\Desktop</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/BLL.dll">
+      <publishTime>09/03/2020 11:31:01</publishTime>
+    </File>
+    <File Include="bin/BLL.dll.config">
+      <publishTime>06/21/2020 15:39:24</publishTime>
+    </File>
+    <File Include="bin/BLL.pdb">
+      <publishTime>09/03/2020 11:31:01</publishTime>
+    </File>
+    <File Include="bin/COMMON.dll">
+      <publishTime>09/03/2020 11:31:00</publishTime>
+    </File>
+    <File Include="bin/COMMON.dll.config">
+      <publishTime>07/31/2020 16:20:48</publishTime>
+    </File>
+    <File Include="bin/COMMON.pdb">
+      <publishTime>09/03/2020 11:31:00</publishTime>
+    </File>
+    <File Include="bin/Constant.dll">
+      <publishTime>09/01/2020 15:00:19</publishTime>
+    </File>
+    <File Include="bin/Constant.pdb">
+      <publishTime>09/01/2020 15:00:19</publishTime>
+    </File>
+    <File Include="bin/DAL.dll">
+      <publishTime>09/01/2020 15:00:20</publishTime>
+    </File>
+    <File Include="bin/DAL.dll.config">
+      <publishTime>02/22/2020 14:56:01</publishTime>
+    </File>
+    <File Include="bin/DAL.pdb">
+      <publishTime>09/01/2020 15:00:20</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>10/23/2017 13:15:18</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>10/23/2017 13:15:20</publishTime>
+    </File>
+    <File Include="bin/IBLL.dll">
+      <publishTime>09/01/2020 15:00:20</publishTime>
+    </File>
+    <File Include="bin/IBLL.dll.config">
+      <publishTime>06/21/2020 15:33:34</publishTime>
+    </File>
+    <File Include="bin/IBLL.pdb">
+      <publishTime>09/01/2020 15:00:20</publishTime>
+    </File>
+    <File Include="bin/IDAL.dll">
+      <publishTime>09/01/2020 15:00:19</publishTime>
+    </File>
+    <File Include="bin/IDAL.dll.config">
+      <publishTime>06/21/2020 15:32:37</publishTime>
+    </File>
+    <File Include="bin/IDAL.pdb">
+      <publishTime>09/01/2020 15:00:19</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Bcl.AsyncInterfaces.dll">
+      <publishTime>04/14/2020 22:39:20</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>07/25/2012 11:48:56</publishTime>
+    </File>
+    <File Include="bin/MODEL.dll">
+      <publishTime>09/01/2020 15:00:19</publishTime>
+    </File>
+    <File Include="bin/MODEL.dll.config">
+      <publishTime>08/16/2020 10:25:08</publishTime>
+    </File>
+    <File Include="bin/MODEL.pdb">
+      <publishTime>09/01/2020 15:00:19</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>11/09/2019 00:56:44</publishTime>
+    </File>
+    <File Include="bin/Pipelines.Sockets.Unofficial.dll">
+      <publishTime>06/09/2020 09:18:06</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe.config">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.rsp">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe.config">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.rsp">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Managed.Core.targets">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.AppContext.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Console.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.FileVersionInfo.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.StackTrace.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Compression.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.Primitives.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Pipes.AccessControl.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Pipes.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.AccessControl.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Claims.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Algorithms.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Encoding.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Primitives.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.X509Certificates.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Principal.Windows.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Text.Encoding.CodePages.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.ValueTuple.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.ReaderWriter.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XmlDocument.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XPath.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XPath.XDocument.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe.config">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.rsp">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/Shop.dll">
+      <publishTime>09/03/2020 11:31:02</publishTime>
+    </File>
+    <File Include="bin/Shop.pdb">
+      <publishTime>09/03/2020 11:31:02</publishTime>
+    </File>
+    <File Include="bin/StackExchange.Redis.dll">
+      <publishTime>06/18/2020 13:15:20</publishTime>
+    </File>
+    <File Include="bin/System.Buffers.dll">
+      <publishTime>02/19/2020 10:05:18</publishTime>
+    </File>
+    <File Include="bin/System.IO.Pipelines.dll">
+      <publishTime>02/21/2020 03:57:20</publishTime>
+    </File>
+    <File Include="bin/System.Memory.dll">
+      <publishTime>04/17/2019 16:24:34</publishTime>
+    </File>
+    <File Include="bin/System.Numerics.Vectors.dll">
+      <publishTime>07/19/2017 10:01:36</publishTime>
+    </File>
+    <File Include="bin/System.Runtime.CompilerServices.Unsafe.dll">
+      <publishTime>02/21/2020 03:58:04</publishTime>
+    </File>
+    <File Include="bin/System.Threading.Channels.dll">
+      <publishTime>04/14/2020 22:39:38</publishTime>
+    </File>
+    <File Include="bin/System.Threading.Tasks.Extensions.dll">
+      <publishTime>02/19/2020 10:05:18</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>11/28/2018 13:04:24</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>11/28/2018 12:59:46</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>11/28/2018 13:00:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.Deployment.dll">
+      <publishTime>11/28/2018 13:04:24</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.dll">
+      <publishTime>11/28/2018 13:04:24</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.Razor.dll">
+      <publishTime>11/28/2018 13:04:24</publishTime>
+    </File>
+    <File Include="bin/VMODEL.dll">
+      <publishTime>09/01/2020 15:00:19</publishTime>
+    </File>
+    <File Include="bin/VMODEL.pdb">
+      <publishTime>09/01/2020 15:00:19</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/EntityFramework.resources.dll">
+      <publishTime>10/23/2017 13:15:34</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/EntityFramework.SqlServer.resources.dll">
+      <publishTime>10/23/2017 13:15:34</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Helpers.resources.dll">
+      <publishTime>11/29/2018 13:29:50</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Mvc.resources.dll">
+      <publishTime>11/29/2018 13:25:14</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Razor.resources.dll">
+      <publishTime>11/29/2018 13:25:38</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Webpages.Deployment.resources.dll">
+      <publishTime>11/29/2018 13:29:50</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Webpages.Razor.resources.dll">
+      <publishTime>11/29/2018 13:29:50</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Webpages.resources.dll">
+      <publishTime>11/29/2018 13:29:50</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>02/22/2020 13:57:58</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/css/adminlte.min.css">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/fonts/glyphicons-halflings-regular.eot">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/fonts/glyphicons-halflings-regular.svg">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/fonts/glyphicons-halflings-regular.woff">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/img/AdminLTELogo.png">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/img/avatar.png">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/img/avatar04.png">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/img/avatar2.png">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/img/avatar3.png">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/img/avatar5.png">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/img/boxed-bg.jpg">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/img/boxed-bg.png">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/img/credit/american-express.png">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/img/credit/cirrus.png">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/img/credit/mastercard.png">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/img/credit/mestro.png">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/img/credit/paypal.png">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/img/credit/paypal2.png">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/img/credit/visa.png">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/img/default-150x150.png">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/img/icons.png">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/img/photo1.png">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/img/photo2.png">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/img/photo3.jpg">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/img/photo4.jpg">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/img/prod-1.jpg">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/img/prod-2.jpg">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/img/prod-3.jpg">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/img/prod-4.jpg">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/img/prod-5.jpg">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/img/user1-128x128.jpg">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/img/user2-160x160.jpg">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/img/user3-128x128.jpg">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/img/user4-128x128.jpg">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/img/user5-128x128.jpg">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/img/user6-128x128.jpg">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/img/user7-128x128.jpg">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/img/user8-128x128.jpg">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/img/zs.jpg">
+      <publishTime>04/16/2020 15:46:15</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/js/adminlte.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/js/adminlte.js.map">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/js/adminlte.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/js/adminlte.min.js.map">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/js/demo.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/js/pages/dashboard.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/js/pages/dashboard2.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/dist/js/pages/dashboard3.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/bootstrap/js/bootstrap.bundle.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/bootstrap/js/bootstrap.bundle.js.map">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js.map">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/bootstrap/js/bootstrap.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/bootstrap/js/bootstrap.js.map">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/bootstrap/js/bootstrap.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/bootstrap/js/bootstrap.min.js.map">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/bs-custom-file-input/bs-custom-file-input.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/bs-custom-file-input/bs-custom-file-input.js.map">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/bs-custom-file-input/bs-custom-file-input.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/bs-custom-file-input/bs-custom-file-input.min.js.map">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/datatables-treegrid/dataTables.treeGrid.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/datatables/jquery.dataTables.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/datatables/jquery.dataTables.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fileinput/css/fileinput-rtl.css">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fileinput/css/fileinput-rtl.min.css">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fileinput/css/fileinput.css">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fileinput/css/fileinput.min.css">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fileinput/js/fileinput.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fileinput/js/fileinput.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fileinput/js/locales/zh.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fileinput/js/plugins/piexif.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fileinput/js/plugins/piexif.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fileinput/js/plugins/purify.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fileinput/js/plugins/purify.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fileinput/js/plugins/sortable.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fileinput/js/plugins/sortable.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fileinput/themes/explorer-fa/theme.css">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fileinput/themes/explorer-fa/theme.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fileinput/themes/explorer-fa/theme.min.css">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fileinput/themes/explorer-fa/theme.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fileinput/themes/explorer-fas/theme.css">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fileinput/themes/explorer-fas/theme.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fileinput/themes/explorer-fas/theme.min.css">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fileinput/themes/explorer-fas/theme.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fileinput/themes/explorer/theme.css">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fileinput/themes/explorer/theme.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fileinput/themes/explorer/theme.min.css">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fileinput/themes/explorer/theme.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fileinput/themes/fa/theme.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fileinput/themes/fa/theme.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fileinput/themes/fas/theme.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fileinput/themes/fas/theme.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fileinput/themes/gly/theme.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fileinput/themes/gly/theme.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fontawesome-free/css/all.css">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fontawesome-free/css/all.min.css">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fontawesome-free/css/brands.css">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fontawesome-free/css/brands.min.css">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fontawesome-free/css/fontawesome.css">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fontawesome-free/css/fontawesome.min.css">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fontawesome-free/css/regular.css">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fontawesome-free/css/regular.min.css">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fontawesome-free/css/solid.css">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fontawesome-free/css/solid.min.css">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fontawesome-free/css/svg-with-js.css">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fontawesome-free/css/svg-with-js.min.css">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fontawesome-free/css/v4-shims.css">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fontawesome-free/css/v4-shims.min.css">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fontawesome-free/webfonts/fa-brands-400.eot">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fontawesome-free/webfonts/fa-brands-400.svg">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fontawesome-free/webfonts/fa-brands-400.ttf">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fontawesome-free/webfonts/fa-brands-400.woff">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fontawesome-free/webfonts/fa-brands-400.woff2">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fontawesome-free/webfonts/fa-regular-400.eot">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fontawesome-free/webfonts/fa-regular-400.svg">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fontawesome-free/webfonts/fa-regular-400.ttf">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fontawesome-free/webfonts/fa-regular-400.woff">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fontawesome-free/webfonts/fa-regular-400.woff2">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fontawesome-free/webfonts/fa-solid-900.eot">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fontawesome-free/webfonts/fa-solid-900.svg">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fontawesome-free/webfonts/fa-solid-900.ttf">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fontawesome-free/webfonts/fa-solid-900.woff">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/fontawesome-free/webfonts/fa-solid-900.woff2">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/icheck-bootstrap/icheck-bootstrap.css">
+      <publishTime>04/13/2020 21:54:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+      <publishTime>04/13/2020 21:54:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/icheck-bootstrap/LICENSE">
+      <publishTime>04/13/2020 21:54:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-cookie/jquery.cookie.js">
+      <publishTime>07/26/2020 22:09:23</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/additional-methods.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/additional-methods.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/jquery.validate.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/jquery.validate.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_ar.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_ar.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_az.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_az.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_bg.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_bg.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_bn_BD.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_bn_BD.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_ca.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_ca.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_cs.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_cs.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_da.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_da.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_de.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_de.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_el.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_el.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_es.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_es.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_es_AR.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_es_AR.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_es_PE.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_es_PE.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_et.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_et.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_eu.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_eu.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_fa.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_fa.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_fi.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_fi.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_fr.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_fr.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_ge.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_ge.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_gl.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_gl.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_he.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_he.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_hr.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_hr.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_hu.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_hu.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_hy_AM.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_hy_AM.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_id.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_id.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_is.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_is.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_it.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_it.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_ja.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_ja.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_ka.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_ka.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_kk.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_kk.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_ko.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_ko.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_lt.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_lt.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_lv.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_lv.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_mk.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_mk.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_my.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_my.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_nl.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_nl.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_no.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_no.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_pl.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_pl.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_pt_BR.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_pt_BR.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_pt_PT.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_pt_PT.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_ro.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_ro.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_ru.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_ru.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_sd.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_sd.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_si.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_si.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_sk.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_sk.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_sl.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_sl.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_sr.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_sr.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_sr_lat.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_sr_lat.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_sv.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_sv.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_th.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_th.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_tj.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_tj.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_tr.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_tr.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_uk.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_uk.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_ur.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_ur.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_vi.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_vi.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_zh.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_zh.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_zh_TW.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/messages_zh_TW.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/methods_de.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/methods_de.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/methods_es_CL.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/methods_es_CL.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/methods_fi.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/methods_fi.min.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/methods_it.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/methods_it.min.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/methods_nl.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/methods_nl.min.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/methods_pt.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery-validation/localization/methods_pt.min.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery/core.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery/jquery.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery/jquery.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery/jquery.min.map">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery/jquery.slim.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery/jquery.slim.min.js">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/jquery/jquery.slim.min.map">
+      <publishTime>03/12/2020 10:43:24</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select-tree/bootstrap-treeview.js">
+      <publishTime>07/03/2020 23:06:04</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select-tree/bootstrap-treeview.min.js">
+      <publishTime>07/03/2020 23:06:04</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.css">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/css/select2.css">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/css/select2.min.css">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/af.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/ar.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/az.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/bg.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/bn.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/bs.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/build.txt">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/ca.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/cs.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/da.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/de.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/dsb.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/el.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/en.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/es.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/et.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/eu.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/fa.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/fi.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/fr.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/gl.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/he.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/hi.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/hr.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/hsb.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/hu.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/hy.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/id.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/is.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/it.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/ja.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/ka.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/km.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/ko.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/lt.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/lv.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/mk.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/ms.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/nb.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/ne.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/nl.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/pl.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/ps.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/pt-BR.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/pt.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/ro.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/ru.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/sk.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/sl.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/sq.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/sr-Cyrl.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/sr.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/sv.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/th.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/tk.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/tr.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/uk.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/vi.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/zh-CN.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/i18n/zh-TW.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/select2.full.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/select2.full.min.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/select2.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/select2/js/select2.min.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/dist/sweetalert2.all.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/dist/sweetalert2.all.min.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/dist/sweetalert2.css">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/dist/sweetalert2.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/dist/sweetalert2.min.css">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/dist/sweetalert2.min.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/constants.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/globalState.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/instanceMethods.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/instanceMethods/buttons-handlers.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/instanceMethods/close.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/instanceMethods/enable-disable-elements.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/instanceMethods/getInput.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/instanceMethods/hideLoading.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/instanceMethods/keydown-handler.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/instanceMethods/popup-click-handler.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/instanceMethods/progress-steps.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/instanceMethods/show-reset-validation-error.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/instanceMethods/update.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/instanceMethods/_destroy.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/instanceMethods/_main.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/privateMethods.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/privateProps.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/scss/_animations.scss">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/scss/_body.scss">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/scss/_core.scss">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/scss/_mixins.scss">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/scss/_polyfills.scss">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/scss/_theming.scss">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/scss/_toasts-animations.scss">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/scss/_toasts-body.scss">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/scss/_toasts.scss">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/staticMethods.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/staticMethods/argsToParams.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/staticMethods/dom.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/staticMethods/fire.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/staticMethods/mixin.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/staticMethods/queue.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/staticMethods/showLoading.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/staticMethods/timer.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/SweetAlert.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/sweetalert2.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/sweetalert2.scss">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/utils/aria.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/utils/classes.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/utils/defaultInputValidators.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/utils/DismissReason.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/utils/dom/animationEndEvent.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/utils/dom/domUtils.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/utils/dom/getters.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/utils/dom/index.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/utils/dom/init.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/utils/dom/inputUtils.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/utils/dom/measureScrollbar.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/utils/dom/parseHtmlToContainer.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/utils/dom/renderers/render.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/utils/dom/renderers/renderActions.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/utils/dom/renderers/renderCloseButton.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/utils/dom/renderers/renderContainer.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/utils/dom/renderers/renderContent.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/utils/dom/renderers/renderFooter.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/utils/dom/renderers/renderHeader.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/utils/dom/renderers/renderIcon.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/utils/dom/renderers/renderImage.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/utils/dom/renderers/renderInput.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/utils/dom/renderers/renderPopup.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/utils/dom/renderers/renderProgressSteps.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/utils/dom/renderers/renderTitle.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/utils/ieFix.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/utils/iosFix.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/utils/isNodeEnv.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/utils/openPopup.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/utils/params.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/utils/scrollbarFix.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/utils/setParameters.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/utils/Timer.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/utils/utils.js">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/sweetalert2-9.14.0/src/variables.scss">
+      <publishTime>10/26/1985 16:15:00</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/toastr/toastr.css">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/toastr/toastr.js.map">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/toastr/toastr.min.css">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/toastr/toastr.min.js">
+      <publishTime>03/12/2020 10:43:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/xiangdao-master/css/jquery.steps.css">
+      <publishTime>06/01/2020 17:33:25</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/xiangdao-master/css/main.css">
+      <publishTime>05/20/2020 11:44:28</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/xiangdao-master/css/normalize.css">
+      <publishTime>05/20/2020 11:44:28</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/xiangdao-master/js/jquery.steps.js">
+      <publishTime>05/21/2020 22:08:59</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/xiangdao-master/js/jquery.steps.min.js">
+      <publishTime>05/20/2020 11:46:02</publishTime>
+    </File>
+    <File Include="Statics/Adminlte/plugins/简单md5加密插件/简单md5加密插件.js">
+      <publishTime>07/24/2020 17:03:20</publishTime>
+    </File>
+    <File Include="Views/Login/Index.cshtml">
+      <publishTime>08/26/2020 20:54:49</publishTime>
+    </File>
+    <File Include="Views/Product/Add.cshtml">
+      <publishTime>08/26/2020 22:18:04</publishTime>
+    </File>
+    <File Include="Views/Product/List.cshtml">
+      <publishTime>08/28/2020 21:59:39</publishTime>
+    </File>
+    <File Include="Views/Product/Update.cshtml">
+      <publishTime>08/26/2020 21:56:31</publishTime>
+    </File>
+    <File Include="Views/ProductAttrKey/List.cshtml">
+      <publishTime>07/23/2020 16:47:09</publishTime>
+    </File>
+    <File Include="Views/ProductAttrKeySku/List.cshtml">
+      <publishTime>07/23/2020 16:47:09</publishTime>
+    </File>
+    <File Include="Views/ProductBrand/Add.cshtml">
+      <publishTime>07/24/2020 00:27:09</publishTime>
+    </File>
+    <File Include="Views/ProductBrand/List.cshtml">
+      <publishTime>07/24/2020 00:17:12</publishTime>
+    </File>
+    <File Include="Views/ProductBrand/Update.cshtml">
+      <publishTime>07/24/2020 00:13:32</publishTime>
+    </File>
+    <File Include="Views/ProductCategory/Add.cshtml">
+      <publishTime>07/23/2020 16:47:09</publishTime>
+    </File>
+    <File Include="Views/ProductCategory/List.cshtml">
+      <publishTime>08/26/2020 21:36:14</publishTime>
+    </File>
+    <File Include="Views/ProductCategory/Update.cshtml">
+      <publishTime>08/26/2020 21:34:48</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>08/26/2020 21:04:12</publishTime>
+    </File>
+    <File Include="Views/web.config">
+      <publishTime>04/01/2020 22:39:33</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>09/03/2020 10:59:27</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

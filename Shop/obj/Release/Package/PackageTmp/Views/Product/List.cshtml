@@ -1,0 +1,217 @@
+﻿
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>商品列表</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">首页</a></li>
+                    <li class="breadcrumb-item active">商品展示</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+
+                <div class="card-header">
+                    <a class="btn btn-outline-primary" href="/Product/Add">添加商品</a>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start  action="/ProductCategory/Add"-->
+                <div class="card-body">
+
+                    <table style="width: 100%" id="table" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                        <thead>
+                            <tr role="row">
+                                <th>序号</th>
+                                <th>商品图片</th>
+                                <th>商品名称</th>
+                                <th>默认价格</th>
+                                <th>默认库存</th>
+                                <th width="100">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+
+</section>
+@section js{
+    <script>
+        //var delID = null;
+        //var delImg = null;
+        $(function () {
+            $("#table").DataTable({
+                "lengthChange": false,  //不显示更改每页大小的下拉框
+                "searching": false,     //不显示搜索框
+                "paging": true,         //启用分页
+                "info": true,           //显示备注信息
+                "ordering": false,      //禁止排序
+                "autoWidth": true,      //宽度自适应
+                "processing": true,     //开启加载等待
+                "iDisplayLength": 8,    //每页的大小（显示条数）
+                "pagingType": "full_numbers",
+                //配置中文提示
+                "language": {
+                    "processing": "请求数据中...",//加载数据时的提示信息
+                    "lengthMenu": "显示 _MENU_ 项结果",
+                    "zeroRecords": "没有匹配结果",//无数据时的提示信息
+                    "info": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+                    "infoEmpty": "显示第 0 至 0 项结果，共 0 项",
+                    "infoFiltered": "(由 _MAX_ 项结果过滤)",
+                    "infoPostFix": "",
+                    "search": "搜索:",
+                    "searchPlaceholder": "搜索...",
+                    "url": "",
+                    "emptyTable": "表中数据为空",
+                    "loadingRecords": "载入中...",
+                    "infoThousands": ",",
+                    "paginate": {
+                        "first": "首页",
+                        "previous": "上页",
+                        "next": "下页",
+                        "last": "尾页"
+                    },
+                    "aria": {
+                        "sortAscending": ": 以升序排列此列",
+                        "sortDescending": ": 以降序排列此列"
+                    },
+                    "decimal": "-",
+                    "thousands": "."
+                },
+
+                "serverSide": true,  //服务端模式，数据从后台请求
+                "ajax": function (data, callback, settings) {
+                    var param = {};
+                    param.draw = data.draw;
+                    param.pageSize = data.length;
+                    param.pageIndex = data.start / data.length + 1;
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/Product/GetAll",
+                        cache: false,
+                        data: param,
+                        dataType: "json",
+                        success: function (result) {
+                            setTimeout(function () {
+                                callback(result);
+                            }, 60);
+                            document.body.scrollTop = document.documentElement.scrollTop = 0;
+                        }
+                    });
+                },
+
+                columns: [
+                    { "data": "ID" },
+                    {
+                        "data": function (data) {
+                            var html = "<img src=\"" + JSON.parse(data.ProductMainImg)[0].Url + "\" width=\"80\" />";
+                            return html;
+                        }
+                    },
+                    { "data": "ProductTitle" },
+                    { "data": "Price" },
+                    { "data": "Stock" },
+                    {
+                        "data": function (data) {
+                            var html = "";
+                            html += "<a href=\"/Product/Update?id=" + data.ID + "\" class=\"btn btn-outline-success btn-sm\">编辑</a>";
+                            html += "&nbsp;&nbsp;";
+                            html += "<a href=\"#\" class=\"btn btn-outline-danger btn-sm\"  onclick=\"alertDelModal(" + data.ID + ");\">删除</a>";
+                            return html;
+                            //,'" + data.Img + "'
+                        }
+                    }
+                ]
+
+            });
+        });
+
+
+        function alertDelModal(ID, Img) {
+            //delID = ID;
+            //delImg = Img;
+            //$("#del-modal").modal();
+            Swal.fire({
+                title: "你确认要删除吗?",
+                text: "此操作不可撤销!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#d33",
+                cancelButtonColor: "#3085d6",
+                confirmButtonText: "删除",
+                cancelButtonText: '取消'
+            }).then((result) => {
+                if (result.value) {
+                    //if (!delID && !delImg) {
+                    //    return;
+                    //}
+                    //var formData = new FormData();
+                    //formData.append("ID", delID);
+                    //formData.append("Img", delImg);
+
+                    $.ajax({
+                        url: "/Product/Delete",
+                        type: 'POST',
+                        data: { id: ID },
+                        async: false,
+                        dataType: "json",
+                        // 告诉jQuery不要去处理发送的数据
+                        //processData: false,
+                        //// 告诉jQuery不要去设置Content-Type请求头
+                        //contentType: false,
+
+                        success: function (data) {
+                            if (data.state) {
+                                //$("#del-modal").modal("hide");
+                                Swal.fire(data.msg, "数据已成功删除。", "success");
+                                //刷新datatable数据
+                                $('#table').DataTable().ajax.reload();
+                                //Swal.fire({
+                                //    position: 'top-end',
+                                //    icon: 'success',
+                                //    title: data.msg,
+                                //    showConfirmButton: false,
+                                //    timer: 1500
+                                //})
+                            }
+                            else {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: data.msg
+                                })
+                            }
+                        },
+                        error: function (data) {
+                            Swal.fire({
+                                icon: 'error',
+                                title: "网络连接异常！"
+                            })
+                        }
+                    });
+
+
+                }
+            });
+        }
+    </script>
+}

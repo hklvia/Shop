@@ -1,0 +1,14 @@
+E:\学校\课程\Asp.net云平台开发\Project\MODEL\bin\Release\MODEL.dll.config
+E:\学校\课程\Asp.net云平台开发\Project\MODEL\bin\Release\MODEL.dll
+E:\学校\课程\Asp.net云平台开发\Project\MODEL\bin\Release\MODEL.pdb
+E:\学校\课程\Asp.net云平台开发\Project\MODEL\bin\Release\EntityFramework.dll
+E:\学校\课程\Asp.net云平台开发\Project\MODEL\bin\Release\EntityFramework.SqlServer.dll
+E:\学校\课程\Asp.net云平台开发\Project\MODEL\bin\Release\EntityFramework.xml
+E:\学校\课程\Asp.net云平台开发\Project\MODEL\bin\Release\EntityFramework.SqlServer.xml
+E:\学校\课程\Asp.net云平台开发\Project\MODEL\bin\Release\zh-Hans\EntityFramework.resources.dll
+E:\学校\课程\Asp.net云平台开发\Project\MODEL\bin\Release\zh-Hans\EntityFramework.SqlServer.resources.dll
+E:\学校\课程\Asp.net云平台开发\Project\MODEL\obj\Release\MODEL.csprojAssemblyReference.cache
+E:\学校\课程\Asp.net云平台开发\Project\MODEL\obj\Release\MODEL.csproj.CoreCompileInputs.cache
+E:\学校\课程\Asp.net云平台开发\Project\MODEL\obj\Release\MODEL.csproj.CopyComplete
+E:\学校\课程\Asp.net云平台开发\Project\MODEL\obj\Release\MODEL.dll
+E:\学校\课程\Asp.net云平台开发\Project\MODEL\obj\Release\MODEL.pdb

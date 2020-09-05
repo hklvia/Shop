@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="ShopEntities-Web.config Connection String" description="ShopEntities 由应用程序在 web.config 中用来访问数据库的连接字符串。" defaultValue="metadata=res://*/Shop.csdl|res://*/Shop.ssdl|res://*/Shop.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=.;initial catalog=Shop;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="E:\\学校\\课程\\Asp\.net云平台开发\\Project\\Shop\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ShopEntities']/@connectionString" />
+  </parameter>
+</parameters>

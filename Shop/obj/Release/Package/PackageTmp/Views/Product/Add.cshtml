@@ -1,0 +1,573 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section css{
+    <link href="~/Statics/Adminlte/plugins/xiangdao-master/css/jquery.steps.css" rel="stylesheet" />
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>商品添加</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">首页</a></li>
+                    <li class="breadcrumb-item active">商品管理</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<div id="wizard" style="padding:10px">
+    <h1>第一步：商品基本属性</h1>
+    <div style="margin:20px">
+        <div class="form-group row">
+            <label for="ProductTitle" class="col-sm-2 col-form-label">商品标题：</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" onchange="KeyWordsAutoFill()" id="ProductTitle" name="ProductTitle" placeholder="请输入商品标题">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="Brand" class="col-sm-2 col-form-label">商品品牌</label>
+            <div class="col-sm-10">
+                <select class="form-control select2 select2-hidden-accessible" name="Brand" id="Brand" style="width:100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                    <option value="0">请选择品牌</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="ProductPrice" class="col-sm-2 col-form-label">商品价格：</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="Price" name="ProductPrice" placeholder="请输入商品价格">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="ProductStock" class="col-sm-2 col-form-label">商品库存：</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="Stock" name="ProductStock" placeholder="请输入商品库存">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="KeyWords" class="col-sm-2 col-form-label">商品关键词：</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="KeyWords" name="KeyWords" placeholder="请输入商品关键词，多个关键词用“、”隔开">
+            </div>
+        </div>
+    </div>
+
+    <h1>第二步：商品图片</h1>
+    <div style="margin:20px">
+        <div class="form-group row">
+            <label for="ProductMainImg" class="col-sm-2 col-form-label">商品主图：</label>
+            <div class="col-sm-10">
+                <input type="file" name="ProductMainImg" id="ProductMainImg" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="ProductSlideImgs" class="col-sm-2 col-form-label">商品轮播图：</label>
+            <div class="col-sm-10">
+                <input type="file" name="ProductSlideImgs" id="ProductSlideImgs" multiple />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="ProductDetail" class="col-sm-2 col-form-label">商品详情图：</label>
+            <div class="col-sm-10">
+                <input type="file" name="ProductDetail" id="ProductDetail" multiple />
+            </div>
+        </div>
+    </div>
+
+    <h1>第三步：商品属性、Sku</h1>
+    <div style="margin:20px">
+        <div class="form-group row" style="margin-bottom:20px">
+            <label class="col-sm-2 col-form-label">商品类别：</label>
+            <div class="col-sm-10">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="row">
+                            <span class="col-sm-4 col-form-label">一级分类</span>
+                            <select id="category1" style="width:160px;" class="form-control col-sm-8 select2 select2-hidden-accessible"></select>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="row">
+                            <span class="col-sm-4 col-form-label">二级分类</span>
+                            <select id="category2" style="width:160px;" class="form-control col-sm-8 select2 select2-hidden-accessible"></select>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="row">
+                            <span class="col-sm-4 col-form-label">三级分类</span>
+                            <select id="category3" style="width:160px;" class="form-control col-sm-8 select2 select2-hidden-accessible"></select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row" style="margin-bottom:20px">
+            <label class="col-sm-2 col-form-label">商品规格（SKU）：</label>
+            <div class="col-sm-10">
+                <div id="skus" style="padding:20px;margin-bottom:15px;background-color:rgb(244,246,249);border:1px solid #e9e9e9;border-radius:4px;"></div>
+                <div>
+                    <table id="sku-table" border="1" class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>价格</th>
+                                <th>库存</th>
+                                <th>SKU编号</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2"><button onclick="createSkuCollections()" class="btn btn-outline-primary btn-sm">生成sku组合</button> </div>
+                    <div class="col-sm-2"><button class="btn btn-outline-primary btn-sm" onclick="syncPrice()">同步价格</button></div>
+                    <div class="col-sm-2"><button class="btn btn-outline-primary btn-sm" onclick="syncStock()">同步库存</button></div>
+                </div>
+            </div>
+        </div>
+        <div id="SkuImg" class="form-group row">
+        </div>
+
+        <div class="form-group row" style="margin-bottom:20px">
+            <label class="col-sm-2 col-form-label">商品属性：</label>
+            <div class="col-sm-10">
+                <div id="attrs" style="padding:20px;margin-bottom:15px;background-color:rgb(244,246,249);border:1px solid #e9e9e9;border-radius:4px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section js{
+    <script src="~/Statics/Adminlte/plugins/xiangdao-master/js/jquery.steps.js"></script>
+    <script type="text/javascript">
+        var ProductMainImg = [], ProductSlideImgs = [], ProductDetail = [], ProductCategoryID;
+        var imgUploadUrl = "http://localhost:50069/Img/Upload"
+        var skuArrays = [];
+        results = [];
+        result = [];
+        $("#wizard").steps({
+            //enableAllSteps: true,   //启用所有tab可点击
+            transitionEffect: 1,    //动画启用
+            transitionEffectSpeed: 200,    //动画速度
+            enableKeyNavigation: true,
+            stepsOrientation: 1,
+            onFinished: function () {
+                var product = {}
+                var productObj = {}
+                //第一步
+                productObj.ProductTitle = $("#ProductTitle").val()
+                productObj.ProductBrandID = $("#Brand").val()
+                productObj.Price = $("#Price").val()
+                productObj.Stock = $("#Stock").val()
+                productObj.KeyWords = $("#KeyWords").val()
+                //第二步
+                productObj.ProductMainImg = JSON.stringify(ProductMainImg)
+                //productObj.ProductMainImg = $("#ProductMainImg").val()
+                productObj.ProductSlideImgs = JSON.stringify(ProductSlideImgs)
+                productObj.ProductDetail = JSON.stringify(ProductDetail)
+                //第三步
+                productObj.ProductCategoryID = ProductCategoryID
+                productObj.ProductCategoryPath = JSON.stringify([
+                    $("#category1").val(),
+                    $("#category2").val(),
+                    $("#category3").val()
+                ])
+                productObj.ProductSkuValues = JSON.stringify(skuArrays)
+
+                product.Product = productObj
+                skuDatas = []
+                $("#sku-table tbody tr").each(function (index) {
+                    var sku = {}
+                    sku.ProductSku1 = JSON.stringify(results[index])
+                    sku.Price = $(this).find("input.price").val()
+                    sku.Stock = $(this).find("input.stock").val()
+                    sku.SkuNum = $(this).find("input.sku-num").val()
+                    skuDatas.push(sku)
+                })
+                product.Skus = skuDatas
+
+                attrDatas = []
+                $("#attrs div.attr").each(function () {
+                    var attr = {}
+                    attr.AttrName = $(this).find("div.attr-name").text()
+                    var enterType = $(this).attr("enter-type")
+                    var attrValue;
+                    if (enterType == "1") {
+                        attrValue = $(this).find("input").val()
+                    } else {
+                        attrValue = $(this).find("select").val()
+                    }
+                    attr.AttrValue = attrValue
+                    attrDatas.push({ ProductAttrs: JSON.stringify(attr) })
+                })
+                product.Attrs = attrDatas
+                console.log(product)
+
+                $.ajax({
+                    url: "/Product/Add",
+                    type: 'POST',
+                    data: JSON.stringify(product),
+                    //async: false,
+                    dataType: "json",
+
+                    // 告诉jQuery不要去处理发送的数据
+                    processData: false,
+                    // 告诉jQuery不要去设置Content-Type请求头
+                    contentType: "application/json;charset=utf-8",
+
+                    success: function (data) {
+                        if (data.state == true) {
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: data.msg,
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                        }
+                        else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: data.msg
+                            })
+                        }
+                    },
+                    error: function (data) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: "网络连接异常！"
+                        })
+                    }
+                });
+            },
+            labels: {
+                finish: "提交",
+                next: "下一步",
+                previous: "上一步",
+                loading: "加载中 ..."
+            }
+        });
+
+        //商品主图文件上传
+        $('#ProductMainImg').fileinput({
+            language: 'zh',
+            allowedFileExtensions: ['jpg', 'jpeg', 'png', 'gif', 'webp'],
+            showUpload: true,
+            browseClass: "btn btn-primary",
+            dropZoneEnabled: false,
+            uploadUrl: imgUploadUrl,
+            uploadExtraData: { imgType: 'ProductMainImg' }
+        });
+        //图片上传成功的回调函数
+        $("#ProductMainImg").on('fileuploaded', function (event, data, previewId, index) {//异步上传成功结果处理
+            ProductMainImg.push(data.response[0]);
+        });
+
+        //图片上传失败的回调函数
+        $("#ProductMainImg").on('fileerror', function (event, data, msg) {//异步上传失败结果处理
+            Swal.fire({ icon: 'error', title: "删除失败！" })
+        });
+
+        //商品滚动图文件上传
+        $('#ProductSlideImgs').fileinput({
+            language: 'zh',
+            allowedFileExtensions: ['jpg', 'jpeg', 'png', 'gif', 'webp'],
+            showUpload: true,
+            browseClass: "btn btn-primary",
+            dropZoneEnabled: true,
+            browseOnZoneClick: true,  //是否在点击预览区域时触发文件浏览/选择
+            uploadUrl: imgUploadUrl,
+            uploadExtraData: { imgType: 'ProductSlideImg' }
+        });
+        $("#ProductSlideImgs").on('fileuploaded', function (event, data, previewId, index) {//异步上传成功结果处理
+            ProductSlideImgs.push(data.response[0]);
+        });
+
+        //商品详情图文件上传
+        $('#ProductDetail').fileinput({
+            language: 'zh',
+            allowedFileExtensions: ['jpg', 'jpeg', 'png', 'gif', 'webp'],
+            showUpload: true,
+            browseClass: "btn btn-primary",
+            dropZoneEnabled: true,
+            browseOnZoneClick: true,  //是否在点击预览区域时触发文件浏览/选择
+            uploadUrl: imgUploadUrl,
+            uploadExtraData: { imgType: 'ProductDetailImg' }
+        });
+        $("#ProductDetail").on('fileuploaded', function (event, data, previewId, index) {//异步上传成功结果处理
+            ProductDetail.push(data.response[0]);
+        });
+
+        //生成sku组合
+        function doExchange(arr, depth) {
+            for (var i = 0; i < arr[depth].length; i++) {
+                result[depth] = arr[depth][i];
+                if (depth != arr.length - 1) {
+                    doExchange(arr, depth + 1);
+                } else {
+                    results.push(result.slice()); //数组的拷贝
+                }
+            }
+        }
+
+        //同步价格
+        function syncPrice() {
+            $(".price").val($(".price").val())
+        }
+
+        //同步库存
+        function syncStock() {
+            $(".stock").val($(".stock").val())
+        }
+
+        //生成sku图片插件
+        function createSkuImg() {
+            $("#SkuImg").empty()
+            skuArrays.map(function (v) {
+                //如果sku关联图片，则生成上传插件style=\"padding-bottom: 15px\"
+                if (v.IsImg == 1) {
+                    var html = "<label class=\"col-sm-2 col-form-label\">关联图片：</label>" +
+                        "<div class=\"col-sm-10\" style=\"padding: 20px; margin-bottom:15px; background-color:rgb(244,246,249);border:1px solid #e9e9e9; border-radius:4px;\">"
+                    v.values.map(function (v2) {
+                        //生成随机id
+                        v2.random = parseInt(Math.random() * 10000 + 1, 10);
+                        html += "<div class=\"row col-sm-12\" style=\"padding-top: 13px\"><label for=\"skuImg-" + v2.name + "-" + v2.random + "\" class=\"col-sm-2 col-form-label\">" + v2.value + "</label>" +
+                            "<div class=\"col-sm-8\">" +
+                            "<input type=\"file\" id = \"skuImg-" + v2.name + "-" + v2.random + "\" />" +
+                            "</div></div>"
+                    })
+                    html += "</div>"
+                    $("#SkuImg").append(html)
+                    v.values.map(function (v2) {
+                        //商品SKU图文件上传
+                        $("#skuImg-" + v2.name + "-" + v2.random).fileinput({
+                            language: 'zh',
+                            allowedFileExtensions: ['jpg', 'jpeg', 'png', 'gif', 'webp'],
+                            showUpload: true,
+                            browseClass: "btn btn-primary",
+                            dropZoneEnabled: false,
+                            browseOnZoneClick: true,  //是否在点击预览区域时触发文件浏览/选择
+                            uploadUrl: imgUploadUrl,
+                            uploadExtraData: { imgType: 'ProductSkuImg' }
+                        });
+                        $("#skuImg-" + v2.name + "-" + v2.random).on('fileuploaded', function (event, data, previewId, index) {
+                            v2.SkuImg = data.response[0]
+                        });
+                    })
+                }
+            });
+        }
+
+        //生成sku组合
+        function createSkuCollections() {
+            results = [];
+            result = [];
+            newSkuArrays = [];
+            skuArrays.map(function (v) {
+                //阻止添加空数组
+                if (v.values.length != 0) {
+                    newSkuArrays.push(v.values);
+                };
+            });
+
+            doExchange(newSkuArrays, 0);
+
+            //生成表头
+            $("#sku-table thead tr").empty();
+            results[0].map(function (v) {
+                $("#sku-table thead tr").append("<th>" + v.name + "</th>")
+            });
+            $("#sku-table thead tr").append("<th>价格</th>");
+            $("#sku-table thead tr").append("<th>库存</th>");
+            $("#sku-table thead tr").append("<th>SKU编号</th>");
+            //console.log(results)
+            //生成数据行
+            $("#sku-table tbody").empty();
+            results.map(function (v) {
+                var html = "<tr>";
+                v.map(function (_v) {
+                    html += "<td>" + _v.value + "</td>";
+                });
+                html += "<td><input type=\"text\" class=\"price form-control\"/></td>";
+                html += "<td><input type=\"text\" class=\"stock form-control\"/></td>";
+                html += "<td><input type=\"text\"/ class=\"sku-num form-control\" value=\"sku00\"></td>";
+                html += "</tr>";
+                $("#sku-table tbody").append(html);
+            });
+            createSkuImg();
+        }
+
+        //获取商品信息，填充指定下拉框
+        function fillCategory(pid, $select) {
+            $.ajax({
+                url: "/ProductCategory/GetByPID",
+                type: "GET",
+                data: { pid: pid },
+                dataType: "json",
+                success: function (data) {
+                    $select.empty();
+                    $select.append("<option value=\"\">请选择</option>");
+                    data.map(function (v) {
+                        $select.append("<option value=\"" + v.ID + "\">" + v.Name + "</option>");
+                    });
+                }
+            });
+        }
+
+        //根据文本框输入的sku添加一个sku的单选框
+        function addSku(inputID, divID, skuName) {
+            var skuValue = $("#" + inputID).val();
+            $("#" + inputID).val("")
+            var html = "<div style=\"padding:7px 8px\" class=\"icheck-primary d-inline\" style =\"padding-right: 15px;\">";
+            html += "<input type = \"checkbox\" id = \"sku-checkbox-" + skuValue + "\" onchange=\"addSkuToArray(this,'" + skuName + "','" + skuValue + "')\" value = \"\" />";
+            html += "<label for=\"sku-checkbox-" + skuValue + "\" style=\"font-weight:normal \">" + skuValue + "</label>";
+            html += "</div>"
+            $("#" + divID).append(html);
+        }
+
+        //点击单选框将值存储到数组中
+        function addSkuToArray(obj, skuName, skuValue) {
+            var isChecked = $(obj).prop("checked");
+            skuArrays.map(function (v) {
+                if (skuName == v.name) {
+                    var pos = -1;
+                    for (var i = 0; i < v.values.length; i++) {
+                        if (v.values[i].value == skuValue) {
+                            pos = i;
+                            break;
+                        }
+                    }
+                    if (isChecked && pos == -1) {
+                        v.values.push({ name: skuName, value: skuValue });
+                    }
+                    else if (pos != -1) {
+                        v.values.splice(pos, 1);
+                    }
+                }
+            });
+        }
+
+        //根据商品分类获得其属性
+        function getSkus(id) {
+            $.ajax({
+                url: "/ProductAttrKeySku/GetByCategoryID",
+                type: "GET",
+                data: { categoryID: id },
+                dataType: "json",
+                success: function (data) {
+                    data.map(function (v) {
+                        var sku = {};
+                        sku.name = v.AttrName;
+                        sku.IsImg = v.IsImg;
+                        sku.values = [];
+                        var html = "<div style=\"padding-bottom:15px;\">" +
+                            "<div style=\"padding-bottom:5px;\">" + v.AttrName + "</div>" +
+                            "<div>";
+                        if (v.EnterType == 1) {   //手动录入
+                            html += "<div class=\"row\" style=\"padding:7px 8px\"><div class=\"col-sm-3\"><input type=\"text\"/ class=\"form-control\" id=\"sku-" + v.AttrName + "-input\" /></div><div class=\"col-sm-3\"><button style=\"line-height: 2;\" class=\"btn btn-outline-primary btn-sm\" onclick=\"addSku('sku-" + v.AttrName + "-input','sku-" + v.AttrName + "-div','" + v.AttrName + "')\">添加</button></div></div>";
+                            html += "<div id=\"sku-" + v.AttrName + "-div\"></div>";
+                        } else if (v.EnterType == 2) {
+                            v.AttrValues.map(function (v_attrValue) {
+                                html += "<div class=\"icheck-primary d-inline\" style=\"padding-right:15px;\">";
+                                html += "<input type=\"checkbox\" id=\"sku-" + v.AttrName + "-" + v_attrValue + "\" onchange=\"addSkuToArray(this,'" + v.AttrName + "','" + v_attrValue + "')\"/>" +
+                                    "<label style=\"margin:10px\" for=\"sku-" + v.AttrName + "-" + v_attrValue + "\" style=\"font-weight:normal\">" + v_attrValue + " </label>";
+                            });
+                        }
+                        html += "</div>";
+                        html += "</div>";
+                        $("#skus").append(html);
+                        skuArrays.push(sku);
+                    });
+                }
+            });
+        }
+
+        //获取商品属性
+        function getAttrs(id) {
+            $.ajax({
+                url: "/ProductAttrKey/GetWithAttrValuesByCategoryID",
+                type: "GET",
+                data: { categoryID: id },
+                dataType: "json",
+                success: function (data) {
+                    data.map(function (v) {
+                        var html = "<div style=\"padding-bottom:15px\" class=\"attr row\" enter-type=\"" + v.EnterType + "\">";
+                        html += "<div style=\"padding-bottom:5px;\" class=\"col-sm-2 col-form-label attr-name\">" + v.AttrName + "</div>";
+                        html += "<div class=\"col-sm-4\">";
+                        if (v.EnterType == 1) {
+                            html += "<input type=\"text\" class=\"form-control\"/>";
+                        } else if (v.EnterType == 2) {
+                            html += "<select class=\"form-control\">";
+                            html += "<option value=\"\">请选择</option>"
+                            v.AttrValues.map(function (v_attrValue) {
+                                html += "<option value=\"" + v_attrValue + "\">" + v_attrValue + "</option>"
+                            });
+                            html += "</select>";
+                        }
+                        html += "</div>";
+                        html += "</div>";
+                        $("#attrs").append(html);
+                    });
+                }
+            });
+        }
+
+        //填充品牌以及默认请选择
+        $(function () {
+            //填充商品品牌
+            $.ajax({
+                url: "/ProductBrand/GetAllByProductAdd",
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                    data.map(function (v) {
+                        $("#Brand").append("<option value=\"" + v.ID + "\">" + v.BrandName + "</option>")
+                    })
+                }
+            })
+            //$("#KeyWords").onchange() = $("#ProductTitle").val()
+
+            fillCategory(0, $("#category1"));
+            $("#category2").append("<option value=\"\">请选择</option>");
+            $("#category3").append("<option value=\"\">请选择</option>");
+        });
+
+        $("#category1").change(function () {
+            var pid = $(this).val();
+            fillCategory(pid, $("#category2"));
+            $("#category3").empty();
+            $("#category3").append("<option value=\"\">请选择</option>");
+        });
+
+        $("#category2").change(function () {
+            var pid = $(this).val();
+            fillCategory(pid, $("#category3"));
+        });
+
+        //为三级分类下拉框注册改变事件，获取sku
+        $("#category3").change(function () {
+            var id = ProductCategoryID = $(this).val();
+            $("#skus").empty();
+            $("#sku-table thead tr").empty();
+            $("#sku-table tbody").empty();
+            $("#attrs").empty();
+            getSkus(id);
+            getAttrs(id);
+        });
+
+        function KeyWordsAutoFill() {
+            $("#KeyWords").val($("#ProductTitle").val())
+            KeyWordsAutoFill = function () { };
+        }
+    </script>
+}

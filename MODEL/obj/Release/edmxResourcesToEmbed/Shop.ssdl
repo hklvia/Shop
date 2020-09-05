@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="Role" Type="int" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="LastLogin" Type="datetime" />
+  </EntityType>
+  <EntityType Name="MainOrder">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberID" Type="int" />
+    <Property Name="OrderNum" Type="varchar" MaxLength="50" />
+    <Property Name="TotalPrice" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="OrderStatus" Type="varchar" MaxLength="50" />
+    <Property Name="ExpressNum" Type="varchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AvatarUrl" Type="varchar" MaxLength="500" />
+    <Property Name="Country" Type="varchar" MaxLength="50" />
+    <Property Name="Province" Type="varchar" MaxLength="50" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="Gender" Type="char" MaxLength="1" />
+    <Property Name="NickName" Type="nvarchar" MaxLength="50" />
+    <Property Name="OpenId" Type="varchar" MaxLength="200" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Number">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="int" />
+    <Property Name="CurrentNumber" Type="int" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductTitle" Type="nvarchar" MaxLength="1000" />
+    <Property Name="ProductBrandID" Type="int" />
+    <Property Name="ProductMainImg" Type="varchar" MaxLength="3000" />
+    <Property Name="ProductSlideImgs" Type="varchar" MaxLength="3000" />
+    <Property Name="ProductDetail" Type="nvarchar(max)" />
+    <Property Name="ProductSku" Type="varchar" MaxLength="3000" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Stock" Type="int" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="ProductCategoryID" Type="int" />
+    <Property Name="ProductCategoryPath" Type="varchar" MaxLength="100" />
+    <Property Name="ProductSkuValues" Type="varchar" MaxLength="5000" />
+    <Property Name="KeyWords" Type="nvarchar" MaxLength="1000" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductAttr">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductAttrs" Type="varchar" MaxLength="2000" />
+    <Property Name="ProductID" Type="int" />
+  </EntityType>
+  <EntityType Name="ProductAttrKey">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AttrName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProductCategoryID" Type="int" />
+    <Property Name="IsSku" Type="int" />
+    <Property Name="EnterType" Type="int" />
+    <Property Name="OrderNum" Type="int" />
+    <Property Name="IsImg" Type="int" />
+  </EntityType>
+  <EntityType Name="ProductAttrValue">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AttrValue" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProductAttrKeyID" Type="int" />
+  </EntityType>
+  <EntityType Name="ProductBrand">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BrandName" Type="nvarchar" MaxLength="50" />
+    <Property Name="BrandInitials" Type="nvarchar" MaxLength="50" />
+    <Property Name="BrandLogo" Type="nvarchar" MaxLength="500" />
+    <Property Name="BrandImg" Type="nvarchar" MaxLength="500" />
+    <Property Name="BrandStory" Type="nvarchar" MaxLength="500" />
+    <Property Name="OrderNum" Type="int" />
+    <Property Name="IsDisplay" Type="int" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ProductCategory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Img" Type="nvarchar" MaxLength="300" />
+    <Property Name="PID" Type="int" />
+    <Property Name="OrderNum" Type="int" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="KeyWords" Type="nvarchar" MaxLength="200" />
+    <Property Name="Path" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="ProductSku">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductSku" Type="varchar" MaxLength="1000" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Stock" Type="int" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="SkuNum" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ProductSkuImg">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SkuImg" Type="varchar" MaxLength="2000" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="SkuName" Type="nvarchar" MaxLength="50" />
+    <Property Name="SkuValue" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SubOrder">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PID" Type="int" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="Count" Type="int" />
+    <Property Name="ProductPrice" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SkuID" Type="int" />
+    <Property Name="SkuInfo" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityContainer Name="ShopModelStoreContainer">
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MainOrder" EntityType="Self.MainOrder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Number" EntityType="Self.Number" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductAttr" EntityType="Self.ProductAttr" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductAttrKey" EntityType="Self.ProductAttrKey" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductAttrValue" EntityType="Self.ProductAttrValue" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductBrand" EntityType="Self.ProductBrand" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductCategory" EntityType="Self.ProductCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductSku" EntityType="Self.ProductSku" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductSkuImg" EntityType="Self.ProductSkuImg" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubOrder" EntityType="Self.SubOrder" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,240 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>电商管理系统 | 登录</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <link href="~/Statics/Adminlte/plugins/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Statics/Adminlte/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="~/Statics/Adminlte/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/Statics/Adminlte/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.loli.net/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <style>
+        .login-page {
+            background: #e7ffff;
+        }
+
+        .login-box {
+            width: auto;
+        }
+
+        .boder {
+            border-radius: 8px;
+            border: 1px solid #dadce0;
+            display: block;
+            flex-shrink: 0;
+            margin: 0 auto;
+            transition: .2s;
+            width: 500px;
+            box-sizing: inherit;
+            background: #fff;
+            padding: 20px 40px 27px;
+        }
+
+        .UserInput {
+            height: 56px;
+            border-radius: 4px;
+            color: #202124;
+        }
+
+        .inputClass {
+            font-size: 18px;
+            height: 100%;
+            padding: 13px 16px;
+        }
+
+            .inputClass:focus {
+                border: 2px solid #1a73e8;
+            }
+
+        .error {
+            font-size: 13px;
+            color: red;
+        }
+    </style>
+</head>
+<body class="login-page" style="min-height: 485px;" onLoad="document.getElementById('username').focus();GetCookie();">
+    <div class="login-box">
+        <div class="card boder">
+            <div class="card-body login-card-body">
+                <div class="login-logo">
+                    <a href="#"><b>电商系统</b>后台登陆</a>
+                </div>
+                <p class="login-box-msg">登录以进行您的操作</p>
+
+                <form action="/Login/SignIn" method="post" id="form">
+                    <div class="mb-3 UserInput">
+                        <input type="text" id="username" name="username" class="form-control inputClass" placeholder="您的账号或用户名">
+                    </div>
+                    <div class="mb-3 UserInput" style="margin-top:20px">
+                        <input type="password" name="password" id="password" class="form-control inputClass" placeholder="您的密码">
+                    </div>
+                    <p id="error-msg" style="text-align:center;color:red;"></p>
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="icheck-primary">
+                                <input type="checkbox" id="remember">
+                                <label for="remember">
+                                    记住密码
+                                </label>
+                            </div>
+                        </div>
+                        <!-- /.col onclick="Login()" -->
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-primary btn-block">登  录</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </form>
+
+                @*<div class="social-auth-links text-center mb-3">
+                    <p>- OR -</p>
+                    <a href="#" class="btn btn-block btn-primary">
+                        <i class="fab fa-facebook mr-2"></i> 使用 Facebook 登录
+                    </a>
+                    <a href="#" class="btn btn-block btn-danger">
+                        <i class="fab fa-google-plus mr-2"></i> 使用 Google+ 登录
+                    </a>
+                </div>*@
+                <!-- /.social-auth-links -->
+
+                <p class="mb-1" style="margin-top:30px;">
+                    <a href="forgot-password.html">忘记了您的密码？</a>
+                    <a href="register.html" class="text-center" style="float:right;">创建账号</a>
+                </p>
+            </div>
+            <!-- /.login-card-body -->
+        </div>
+    </div>
+    <!-- /.login-box -->
+    <!-- jQuery -->
+    <script src="~/Statics/Adminlte/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/Statics/Adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/Statics/Adminlte/dist/js/adminlte.min.js"></script>
+    <!-- jquery-validation -->
+    <script src="~/Statics/Adminlte/plugins/jquery-validation/jquery.validate.min.js"></script>
+    <script src="~/Statics/Adminlte/plugins/jquery-validation/additional-methods.min.js"></script>
+
+    <script>
+        //数据验证
+        $('#form').validate({
+            rules: {
+                username: {
+                    required: true
+                },
+                password: {
+                    required: true
+                }
+            },
+            messages: {
+                username: {
+                    required: "用户名不能为空！"
+                },
+                password: {
+                    required: "密码不能为空！"
+                }
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+            },
+            //验证通过后的回调函数
+            submitHandler: function (form) {
+                var formData = new FormData();
+                formData.append("UserName", $("#username").val());
+                formData.append("password", $("#password").val());
+
+                $.ajax({
+                    url: "/Login/SignIn",
+                    type: 'POST',
+                    data: formData,
+                    dataType: "json",
+                    // 告诉jQuery不要去处理发送的数据
+                    processData: false,
+                    // 告诉jQuery不要去设置Content-Type请求头
+                    contentType: false,
+                    success: function (result) {
+                        if (result.state == true) {
+                            saveInfo();
+                            window.location.href = "/Product/List";
+                        } else {
+                            $("#error-msg").html(result.msg);
+                        }
+                    },
+                    error: function (result) {
+                        $("#error-msg").html("网络连接异常！");
+                    }
+                })
+            }
+        });
+
+        saveInfo = function () {
+            try {
+                var isSave = document.getElementById('remember').checked;   //保存按键是否选中
+                if (isSave) {
+                    var username = window.btoa(document.getElementById('username').value);
+                    var password = window.btoa(document.getElementById('password').value);
+                    if (username != "" && password != "") {
+                        SetCookie(username, password);
+                    }
+                } else {
+                    SetCookie("", "");
+                }
+            } catch (e) {
+                console.log(e)
+            }
+        }
+
+        function SetCookie(username, password) {
+            var Then = new Date();
+            Then.setTime(Then.getTime() + 1866240000000);
+            document.cookie = "username=" + username + "%%" + password + ";expires=" + Then.toGMTString();
+        }
+
+        function GetCookie() {
+            var nmpsd;
+            var nm;
+            var psd;
+            var cookieString = new String(document.cookie);
+            var cookieHeader = "username=";
+            var beginPosition = cookieString.indexOf(cookieHeader);
+            cookieString = cookieString.substring(beginPosition);
+            var ends = cookieString.indexOf(";");
+            if (ends != -1) {
+                cookieString = cookieString.substring(0, ends);
+            }
+            if (beginPosition > -1) {
+                nmpsd = cookieString.substring(cookieHeader.length);
+                if (nmpsd != "") {
+                    beginPosition = nmpsd.indexOf("%%");
+                    nm = nmpsd.substring(0, beginPosition);
+                    psd = nmpsd.substring(beginPosition + 2);
+                    document.getElementById('username').value = window.atob(nm);
+                    document.getElementById('password').value = window.atob(psd);
+                    if (nm != "" && psd != "") {
+                        document.getElementById('remember').checked = true;
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

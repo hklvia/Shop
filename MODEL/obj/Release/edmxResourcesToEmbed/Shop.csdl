@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ProductCategory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Img" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="PID" Type="Int32" />
+    <Property Name="OrderNum" Type="Int32" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="KeyWords" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Path" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="ShopEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ProductCategory" EntityType="Self.ProductCategory" />
+    <EntitySet Name="Product" EntityType="ShopModel.Product" />
+    <EntitySet Name="ProductAttrKey" EntityType="ShopModel.ProductAttrKey" />
+    <EntitySet Name="ProductAttrValue" EntityType="ShopModel.ProductAttrValue" />
+    <EntitySet Name="ProductSku" EntityType="ShopModel.ProductSku" />
+    <EntitySet Name="ProductAttr" EntityType="ShopModel.ProductAttr" />
+    <EntitySet Name="ProductBrand" EntityType="ShopModel.ProductBrand" />
+    <EntitySet Name="ProductSkuImg" EntityType="ShopModel.ProductSkuImg" />
+    <EntitySet Name="Admin" EntityType="ShopModel.Admin" />
+    <EntitySet Name="Member" EntityType="ShopModel.Member" />
+    <EntitySet Name="MainOrder" EntityType="ShopModel.MainOrder" />
+    <EntitySet Name="SubOrder" EntityType="ShopModel.SubOrder" />
+    <EntitySet Name="Number" EntityType="ShopModel.Number" />
+  </EntityContainer>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductTitle" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="ProductMainImg" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+    <Property Name="ProductSlideImgs" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+    <Property Name="ProductDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProductSku" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="ProductCategoryID" Type="Int32" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Stock" Type="Int32" />
+    <Property Name="ProductCategoryPath" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ProductSkuValues" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="ProductBrandID" Type="Int32" Nullable="true" />
+    <Property Name="KeyWords" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductAttrKey">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AttrName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductCategoryID" Type="Int32" />
+    <Property Name="IsSku" Type="Int32" />
+    <Property Name="EnterType" Type="Int32" />
+    <Property Name="OrderNum" Type="Int32" />
+    <Property Name="IsImg" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ProductAttrValue">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AttrValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductAttrKeyID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ProductSku">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductSku1" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Stock" Type="Int32" />
+    <Property Name="ProductID" Type="Int32" />
+    <Property Name="SkuNum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ProductAttr">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductAttrs" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="ProductID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ProductBrand">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BrandName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BrandInitials" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BrandLogo" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="BrandImg" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="BrandStory" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="OrderNum" Type="Int32" />
+    <Property Name="IsDisplay" Type="Int32" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ProductSkuImg">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SkuImg" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="ProductID" Type="Int32" />
+    <Property Name="SkuName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SkuValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Role" Type="Int32" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="LastLogin" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AvatarUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Province" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NickName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OpenId" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="MainOrder">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberID" Type="Int32" />
+    <Property Name="OrderNum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="OrderStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ExpressNum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SubOrder">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="Int32" />
+    <Property Name="Count" Type="Int32" />
+    <Property Name="ProductPrice" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PID" Type="Int32" />
+    <Property Name="SkuID" Type="Int32" />
+    <Property Name="SkuInfo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Number">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="Int32" />
+    <Property Name="CurrentNumber" Type="Int32" />
+  </EntityType>
+</Schema>
