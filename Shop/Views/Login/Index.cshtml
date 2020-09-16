@@ -25,7 +25,7 @@
     <link href="https://fonts.loli.net/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <style>
         .login-page {
-            background: url(http://www.zhuyanjia.com/admin/skin/images/bg.jpg);
+            background: url(/Statics/bg.jpg);
         }
 
         .login-box {
@@ -72,7 +72,7 @@
         <div class="card boder">
             <div class="card-body login-card-body">
                 <div class="login-logo">
-                    <a href="#"><b>电商系统</b>后台登陆</a>
+                    <a href="#"><b>电商系统</b>后台登录</a>
                 </div>
                 <p class="login-box-msg">登录以进行您的操作</p>
 
@@ -95,7 +95,7 @@
                         </div>
                         <!-- /.col onclick="Login()" -->
                         <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">登  录</button>
+                            <button id="login" type="submit" class="btn btn-primary btn-block">登  录</button>
                         </div>
                         <!-- /.col -->
                     </div>
@@ -130,7 +130,6 @@
     <!-- jquery-validation -->
     <script src="~/Statics/Adminlte/plugins/jquery-validation/jquery.validate.min.js"></script>
     <script src="~/Statics/Adminlte/plugins/jquery-validation/additional-methods.min.js"></script>
-
     <script>
         //数据验证
         $('#form').validate({
@@ -158,6 +157,7 @@
             },
             //验证通过后的回调函数
             submitHandler: function (form) {
+                $('#login').text('登录中...')
                 var formData = new FormData();
                 formData.append("UserName", $("#username").val());
                 formData.append("password", $("#password").val());
@@ -177,10 +177,12 @@
                             window.location.href = "/Product/List";
                         } else {
                             $("#error-msg").html(result.msg);
+                            $('#login').text('登  录')
                         }
                     },
                     error: function (result) {
                         $("#error-msg").html("网络连接异常！");
+                        $('#login').text('登  录')
                     }
                 })
             }

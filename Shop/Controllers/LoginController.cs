@@ -6,6 +6,9 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 
+using System.Data;
+using System.Data.SqlClient;
+
 namespace Shop.Controllers
 {
     [AllowAnonymous]
@@ -15,26 +18,70 @@ namespace Shop.Controllers
         // GET: Login
         public ActionResult Index()
         {
-            //读cookies
-            if (Request.Cookies[FormsAuthentication.FormsCookieName] != null && Request.Cookies[FormsAuthentication.FormsCookieName].Value != null && Request.Cookies[FormsAuthentication.FormsCookieName].Value != "")
+            string lianjie = "Data Source =.; Initial Catalog = Shop;integrated security=true";
+            SqlConnection con = new SqlConnection(lianjie);
+            string sql = "select * from Admin where ID=1";
+            try
             {
-                //string userID = Server.UrlDecode(Request.Cookies[FormsAuthentication.FormsCookieName].Value);
-                //var result = BLL.Search(x => x.Name == username);
-                var cookieValue = Request.Cookies[FormsAuthentication.FormsCookieName].Value;
-                var userID = Convert.ToInt32(FormsAuthentication.Decrypt(cookieValue).UserData);
-                //根据用户名从数据库中查询用户信息
-                var result = BLL.GetOne(userID);
-
-                if (result != null && result.ID == userID)
+                con.Open();
+                SqlDataAdapter asp = new SqlDataAdapter(sql, con);
+                DataSet ds = new DataSet();
+                asp.Fill(ds);
+                var name = ds.Tables[0].Rows[0]["Name"].ToString();
+                //读cookies
+                if (Request.Cookies[FormsAuthentication.FormsCookieName] != null && Request.Cookies[FormsAuthentication.FormsCookieName].Value != null && Request.Cookies[FormsAuthentication.FormsCookieName].Value != "")
                 {
-                    //Session["user"] = result[0];
-                    //实现滑动过期时间
-                    Response.Cookies[FormsAuthentication.FormsCookieName].Value = cookieValue;
-                    Response.Cookies[FormsAuthentication.FormsCookieName].Expires = DateTime.Now.AddDays(1);
-                    return Redirect("/Product/List");
+                    //string userID = Server.UrlDecode(Request.Cookies[FormsAuthentication.FormsCookieName].Value);
+                    //var result = BLL.Search(x => x.Name == username);
+                    var cookieValue = Request.Cookies[FormsAuthentication.FormsCookieName].Value;
+                    var userID = Convert.ToInt32(FormsAuthentication.Decrypt(cookieValue).UserData);
+                    //根据用户名从数据库中查询用户信息
+                    var result = BLL.GetOne(userID);
+
+                    if (result != null && result.ID == userID)
+                    {
+                        //Session["user"] = result[0];
+                        //实现滑动过期时间
+                        Response.Cookies[FormsAuthentication.FormsCookieName].Value = cookieValue;
+                        Response.Cookies[FormsAuthentication.FormsCookieName].Expires = DateTime.Now.AddDays(1);
+                        return Redirect("/Product/List");
+                    }
                 }
+                return View();
             }
-            return View();
+            catch (Exception ex)
+            {
+                return Redirect("/Login/View2?" + ex.Message);
+                throw;
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+
+
+
+            ////读cookies
+            //if (Request.Cookies[FormsAuthentication.FormsCookieName] != null && Request.Cookies[FormsAuthentication.FormsCookieName].Value != null && Request.Cookies[FormsAuthentication.FormsCookieName].Value != "")
+            //{
+            //    //string userID = Server.UrlDecode(Request.Cookies[FormsAuthentication.FormsCookieName].Value);
+            //    //var result = BLL.Search(x => x.Name == username);
+            //    var cookieValue = Request.Cookies[FormsAuthentication.FormsCookieName].Value;
+            //    var userID = Convert.ToInt32(FormsAuthentication.Decrypt(cookieValue).UserData);
+            //    //根据用户名从数据库中查询用户信息
+            //    var result = BLL.GetOne(userID);
+
+            //    if (result != null && result.ID == userID)
+            //    {
+            //        //Session["user"] = result[0];
+            //        //实现滑动过期时间
+            //        Response.Cookies[FormsAuthentication.FormsCookieName].Value = cookieValue;
+            //        Response.Cookies[FormsAuthentication.FormsCookieName].Expires = DateTime.Now.AddDays(1);
+            //        return Redirect("/Product/List");
+            //    }
+            //}
+            //return View();
         }
 
         [HttpPost]

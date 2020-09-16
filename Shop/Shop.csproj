@@ -487,6 +487,7 @@
     <Content Include="Statics\Adminlte\plugins\xiangdao-master\js\jquery.steps.js" />
     <Content Include="Statics\Adminlte\plugins\xiangdao-master\js\jquery.steps.min.js" />
     <Content Include="Statics\Adminlte\plugins\简单md5加密插件\简单md5加密插件.js" />
+    <Content Include="Statics\bg.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

@@ -7,26 +7,26 @@
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA7s98gDkARUepPKZnd4ZKmAAAAAACAAAAAAAQZgAAAAEAACAAAABI3bV/87ooKwwZpkyIby79XSkuZAoigPdqvTBWt+G6HwAAAAAOgAAAAAIAACAAAAArKjBt4DoY6ufoGIqv2KXp7wABaeY9KvGmngpYZ0ncfSAAAAD8wiwXdurE1Nw/t97/P/AAyJVIoS2nKDOai/q0+YqVhUAAAADtd5MkhHYZivIWsv7s/ElhS9VqR7ZV/TLxoN2/Q3l4tv9xRacAIvIqb4G0r/uP/AVllwE5a24YocjJ9ZGitZVT</EncryptedPassword>
-    <_PublishTargetUrl>C:\Users\FRF\Desktop</_PublishTargetUrl>
+    <_PublishTargetUrl>E:\学校\课程\Asp.net云平台开发\Public</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/BLL.dll">
-      <publishTime>09/03/2020 11:31:01</publishTime>
+      <publishTime>09/13/2020 13:46:55</publishTime>
     </File>
     <File Include="bin/BLL.dll.config">
       <publishTime>06/21/2020 15:39:24</publishTime>
     </File>
     <File Include="bin/BLL.pdb">
-      <publishTime>09/03/2020 11:31:01</publishTime>
+      <publishTime>09/13/2020 13:46:55</publishTime>
     </File>
     <File Include="bin/COMMON.dll">
-      <publishTime>09/03/2020 11:31:00</publishTime>
+      <publishTime>09/13/2020 13:46:54</publishTime>
     </File>
     <File Include="bin/COMMON.dll.config">
       <publishTime>07/31/2020 16:20:48</publishTime>
     </File>
     <File Include="bin/COMMON.pdb">
-      <publishTime>09/03/2020 11:31:00</publishTime>
+      <publishTime>09/13/2020 13:46:54</publishTime>
     </File>
     <File Include="bin/Constant.dll">
       <publishTime>09/01/2020 15:00:19</publishTime>
@@ -35,13 +35,13 @@
       <publishTime>09/01/2020 15:00:19</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>09/01/2020 15:00:20</publishTime>
+      <publishTime>09/13/2020 13:46:55</publishTime>
     </File>
     <File Include="bin/DAL.dll.config">
       <publishTime>02/22/2020 14:56:01</publishTime>
     </File>
     <File Include="bin/DAL.pdb">
-      <publishTime>09/01/2020 15:00:20</publishTime>
+      <publishTime>09/13/2020 13:46:55</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>10/23/2017 13:15:18</publishTime>
@@ -50,22 +50,22 @@
       <publishTime>10/23/2017 13:15:20</publishTime>
     </File>
     <File Include="bin/IBLL.dll">
-      <publishTime>09/01/2020 15:00:20</publishTime>
+      <publishTime>09/13/2020 13:46:55</publishTime>
     </File>
     <File Include="bin/IBLL.dll.config">
       <publishTime>06/21/2020 15:33:34</publishTime>
     </File>
     <File Include="bin/IBLL.pdb">
-      <publishTime>09/01/2020 15:00:20</publishTime>
+      <publishTime>09/13/2020 13:46:55</publishTime>
     </File>
     <File Include="bin/IDAL.dll">
-      <publishTime>09/01/2020 15:00:19</publishTime>
+      <publishTime>09/13/2020 13:46:54</publishTime>
     </File>
     <File Include="bin/IDAL.dll.config">
       <publishTime>06/21/2020 15:32:37</publishTime>
     </File>
     <File Include="bin/IDAL.pdb">
-      <publishTime>09/01/2020 15:00:19</publishTime>
+      <publishTime>09/13/2020 13:46:54</publishTime>
     </File>
     <File Include="bin/Microsoft.Bcl.AsyncInterfaces.dll">
       <publishTime>04/14/2020 22:39:20</publishTime>
@@ -230,10 +230,10 @@
       <publishTime>05/24/2018 13:38:24</publishTime>
     </File>
     <File Include="bin/Shop.dll">
-      <publishTime>09/03/2020 11:31:02</publishTime>
+      <publishTime>09/13/2020 13:46:56</publishTime>
     </File>
     <File Include="bin/Shop.pdb">
-      <publishTime>09/03/2020 11:31:02</publishTime>
+      <publishTime>09/13/2020 13:46:56</publishTime>
     </File>
     <File Include="bin/StackExchange.Redis.dll">
       <publishTime>06/18/2020 13:15:20</publishTime>
@@ -278,10 +278,10 @@
       <publishTime>11/28/2018 13:04:24</publishTime>
     </File>
     <File Include="bin/VMODEL.dll">
-      <publishTime>09/01/2020 15:00:19</publishTime>
+      <publishTime>09/13/2020 13:46:54</publishTime>
     </File>
     <File Include="bin/VMODEL.pdb">
-      <publishTime>09/01/2020 15:00:19</publishTime>
+      <publishTime>09/13/2020 13:46:54</publishTime>
     </File>
     <File Include="bin/zh-Hans/EntityFramework.resources.dll">
       <publishTime>10/23/2017 13:15:34</publishTime>
@@ -1585,8 +1585,14 @@
     <File Include="Statics/Adminlte/plugins/简单md5加密插件/简单md5加密插件.js">
       <publishTime>07/24/2020 17:03:20</publishTime>
     </File>
+    <File Include="Statics/bg.jpg">
+      <publishTime>09/10/2020 14:48:38</publishTime>
+    </File>
     <File Include="Views/Login/Index.cshtml">
-      <publishTime>08/26/2020 20:54:49</publishTime>
+      <publishTime>09/11/2020 14:24:47</publishTime>
+    </File>
+    <File Include="Views/Login/View2.cshtml">
+      <publishTime>09/11/2020 10:31:01</publishTime>
     </File>
     <File Include="Views/Product/Add.cshtml">
       <publishTime>08/26/2020 22:18:04</publishTime>
@@ -1628,7 +1634,7 @@
       <publishTime>04/01/2020 22:39:33</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/03/2020 10:59:27</publishTime>
+      <publishTime>09/11/2020 11:41:31</publishTime>
     </File>
   </ItemGroup>
 </Project>

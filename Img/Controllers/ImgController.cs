@@ -37,14 +37,14 @@ namespace Img.Controllers
                 {
                     return Json(new { state = false, msg = "上传的类型有误" });
                 }
-                DateTime dt = DateTime.Now;
+                //DateTime dt = DateTime.Now;
                 Random random = new Random();
                 int randomNum = random.Next(0, 99999);
                 var extension = Path.GetExtension(file.FileName);
                 var newFileName = Guid.NewGuid().ToString("N") + randomNum.ToString() + extension;
 
                 var imgType = Request["imgType"];
-                string upLoadPath = null;
+                string upLoadPath;
                 if (WebConstants.ImgPathDicts.ContainsKey(imgType))
                 {
                     upLoadPath = WebConstants.ImgPathDicts[imgType];
@@ -72,12 +72,10 @@ namespace Img.Controllers
 
                 FormUploader fu = new FormUploader(config);
                 HttpResult result = fu.UploadData(bytes, fullPath, token, null);
-                //var qiniuUrl = "http://shop.statics.hklvia.top/" + fullPath;
-
 
                 ImgInfo imgInfo = new ImgInfo()
                 {
-                    Url = "http://localhost:50069" + fullPath,
+                    Url = "http://localhost:50069/" + fullPath,
                     CloudUrl = "http://shop.statics.hklvia.top/" + fullPath
                 };
                 fileList.Add(imgInfo);

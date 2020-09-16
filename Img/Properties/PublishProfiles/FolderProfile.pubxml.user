@@ -1,0 +1,386 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>E:\学校\课程\Asp.net云平台开发\Public\Img\</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/COMMON.dll">
+      <publishTime>09/15/2020 14:52:31</publishTime>
+    </File>
+    <File Include="bin/COMMON.dll.config">
+      <publishTime>07/31/2020 16:20:48</publishTime>
+    </File>
+    <File Include="bin/COMMON.pdb">
+      <publishTime>09/15/2020 14:52:31</publishTime>
+    </File>
+    <File Include="bin/Constant.dll">
+      <publishTime>09/01/2020 15:00:19</publishTime>
+    </File>
+    <File Include="bin/Constant.pdb">
+      <publishTime>09/01/2020 15:00:19</publishTime>
+    </File>
+    <File Include="bin/Img.dll">
+      <publishTime>09/15/2020 16:48:45</publishTime>
+    </File>
+    <File Include="bin/Img.pdb">
+      <publishTime>09/15/2020 16:48:45</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Bcl.AsyncInterfaces.dll">
+      <publishTime>04/14/2020 22:39:20</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>07/08/2020 21:52:58</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>07/25/2012 11:48:56</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>11/09/2019 00:56:44</publishTime>
+    </File>
+    <File Include="bin/Pipelines.Sockets.Unofficial.dll">
+      <publishTime>06/09/2020 09:18:06</publishTime>
+    </File>
+    <File Include="bin/Qiniu.dll">
+      <publishTime>03/10/2018 12:14:36</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>05/19/2020 01:51:56</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe.config">
+      <publishTime>05/19/2020 01:51:56</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.rsp">
+      <publishTime>05/19/2020 01:40:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe">
+      <publishTime>05/19/2020 01:52:16</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe.config">
+      <publishTime>05/19/2020 01:52:16</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.rsp">
+      <publishTime>05/19/2020 01:40:40</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>05/19/2020 01:47:18</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>05/19/2020 01:51:40</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll">
+      <publishTime>05/19/2020 01:51:58</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>05/19/2020 01:49:16</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll">
+      <publishTime>05/19/2020 01:49:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>05/19/2020 01:50:04</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>05/19/2020 01:40:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll">
+      <publishTime>12/05/2017 01:36:44</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll">
+      <publishTime>12/05/2017 01:36:44</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Managed.Core.targets">
+      <publishTime>05/19/2020 01:40:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>05/19/2020 01:40:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Buffers.dll">
+      <publishTime>07/19/2017 17:01:28</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>05/15/2018 20:29:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Memory.dll">
+      <publishTime>04/17/2019 23:24:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Numerics.Vectors.dll">
+      <publishTime>07/19/2017 17:01:36</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>05/15/2018 20:29:44</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Runtime.CompilerServices.Unsafe.dll">
+      <publishTime>11/15/2019 16:37:58</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Text.Encoding.CodePages.dll">
+      <publishTime>11/29/2018 23:39:18</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Threading.Tasks.Extensions.dll">
+      <publishTime>06/18/2019 19:08:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>05/19/2020 01:50:06</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe.config">
+      <publishTime>05/19/2020 01:50:06</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.rsp">
+      <publishTime>05/19/2020 01:40:26</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>05/19/2020 01:52:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>05/19/2020 01:52:02</publishTime>
+    </File>
+    <File Include="bin/StackExchange.Redis.dll">
+      <publishTime>06/18/2020 13:15:20</publishTime>
+    </File>
+    <File Include="bin/System.Buffers.dll">
+      <publishTime>02/19/2020 10:05:18</publishTime>
+    </File>
+    <File Include="bin/System.IO.Pipelines.dll">
+      <publishTime>02/21/2020 03:57:20</publishTime>
+    </File>
+    <File Include="bin/System.Memory.dll">
+      <publishTime>04/17/2019 16:24:34</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>11/28/2018 13:00:36</publishTime>
+    </File>
+    <File Include="bin/System.Numerics.Vectors.dll">
+      <publishTime>07/19/2017 10:01:36</publishTime>
+    </File>
+    <File Include="bin/System.Runtime.CompilerServices.Unsafe.dll">
+      <publishTime>02/21/2020 03:58:04</publishTime>
+    </File>
+    <File Include="bin/System.Threading.Channels.dll">
+      <publishTime>04/14/2020 22:39:38</publishTime>
+    </File>
+    <File Include="bin/System.Threading.Tasks.Extensions.dll">
+      <publishTime>02/19/2020 10:05:18</publishTime>
+    </File>
+    <File Include="bin/System.Web.Cors.dll">
+      <publishTime>11/28/2018 12:58:44</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>11/28/2018 13:04:24</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.Cors.dll">
+      <publishTime>11/28/2018 13:01:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>11/28/2018 13:01:00</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>11/28/2018 12:59:46</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>11/28/2018 13:00:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.Deployment.dll">
+      <publishTime>11/28/2018 13:04:24</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.dll">
+      <publishTime>11/28/2018 13:04:24</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.Razor.dll">
+      <publishTime>11/28/2018 13:04:24</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Net.Http.Formatting.resources.dll">
+      <publishTime>11/29/2018 13:26:02</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Helpers.resources.dll">
+      <publishTime>11/29/2018 13:29:50</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Http.resources.dll">
+      <publishTime>11/29/2018 13:26:30</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Mvc.resources.dll">
+      <publishTime>11/29/2018 13:25:14</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Razor.resources.dll">
+      <publishTime>11/29/2018 13:25:38</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Webpages.Deployment.resources.dll">
+      <publishTime>11/29/2018 13:29:50</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Webpages.Razor.resources.dll">
+      <publishTime>11/29/2018 13:29:50</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Webpages.resources.dll">
+      <publishTime>11/29/2018 13:29:50</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>06/28/2020 22:46:16</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductBrandImg/4f664cd593e441d99e12ac773a07cce212528.jpg">
+      <publishTime>07/24/2020 00:15:34</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductBrandImg/65b70567a2974b35bcc0c49237e852b280478.jpg">
+      <publishTime>07/24/2020 00:25:49</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductBrandImg/cc26b4eedeb045e781f3e210a9742a6b86403.jpg">
+      <publishTime>07/24/2020 00:23:45</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductBrandLogo/8396b07c5b62410ca85b1895518e0b7d56364.jpg">
+      <publishTime>07/24/2020 00:15:31</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductBrandLogo/b7258512518c423ab3cfc11950ab3f4323221.jpg">
+      <publishTime>07/24/2020 00:25:44</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductBrandLogo/be8392250388433f9fe4b2a61c27fdf194037.jpg">
+      <publishTime>07/24/2020 00:23:44</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/00152a21dfba418cb67b9d52ee5005b122064.jpg">
+      <publishTime>07/21/2020 11:37:48</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/0c726c3a4459417ab1c50e18af5462211797.jpg">
+      <publishTime>07/20/2020 10:53:12</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/10b4caeae6e74e2892a2e48c282b4cdb93827.jpg">
+      <publishTime>07/20/2020 19:50:47</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/14596c4d1342409799b6c15588afd04620341.jpg">
+      <publishTime>07/21/2020 15:12:53</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/167609db01594491b4dfdbaf366f8e0d46750.jpg">
+      <publishTime>07/21/2020 15:13:05</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/2589a9540bfe49989e152172f844db9655043.jpg">
+      <publishTime>07/21/2020 15:23:16</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/2803cf28f58e404b821a00f75f655d4d7580.jpg">
+      <publishTime>07/20/2020 11:21:14</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/2fe6f0c8f79b4d0fa546fd61ad2db2e819886.jpg">
+      <publishTime>07/17/2020 21:18:06</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/3392e020f20a482c9abcf6f81c09d93b17857.jpg">
+      <publishTime>07/20/2020 17:37:48</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/3fec266ad5d54bc7bdea86e79640b8e595304.jpeg">
+      <publishTime>07/20/2020 11:02:45</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/50ac3280d17c4b37a3ba13044483406242193.jpg">
+      <publishTime>07/20/2020 11:02:39</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/50f97b8b206742df9d9a075e4e4d957278769.jpg">
+      <publishTime>07/20/2020 19:49:27</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/52b1503e4a1d47bda7805e0cd5db1ef874436.jpg">
+      <publishTime>07/21/2020 11:25:22</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/52e0a14f443745cfb43cd655c2ba1c8960261.jpeg">
+      <publishTime>07/20/2020 10:53:24</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/56919bd33a21489a8332337fe1d401d898057.jpg">
+      <publishTime>07/20/2020 19:50:34</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/681564bd92e6451f840965a9669acc5535234.jpg">
+      <publishTime>07/20/2020 19:49:12</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/6a9044e2a6464e56a5ebba94b0ee945611176.jpg">
+      <publishTime>07/21/2020 11:27:46</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/6b1c92f02f8e42f085c6de7dcc2792902545.png">
+      <publishTime>07/17/2020 20:27:15</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/6dcb2fe71205498f8803e88eba91222779249.png">
+      <publishTime>07/17/2020 20:26:31</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/813df7db32d145c09d705ee29747bd8554170.jpg">
+      <publishTime>07/21/2020 11:33:14</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/85aed34e7a784bb49abdb43eda1b669658720.jpg">
+      <publishTime>07/21/2020 15:24:11</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/8671021494924685b860504fb35b448494904.jpg">
+      <publishTime>07/20/2020 15:49:08</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/8eebc460925f418f88ca5e46a3810d9639935.jpg">
+      <publishTime>07/20/2020 19:49:20</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/90f7a6f3d80a4109a1348cbff221d13239865.jpeg">
+      <publishTime>07/21/2020 11:27:52</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/92295a62831949d1a6faf7827308c56870184.jpg">
+      <publishTime>07/17/2020 21:18:26</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/97a83ef041264557964bfc8e10fea11442170.jpg">
+      <publishTime>07/17/2020 21:08:22</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/9989fbc72618424e917639448ee2b8b544728.jpg">
+      <publishTime>07/20/2020 19:50:33</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/abfff556447e44bfbb894757aa88ac4d13916.jpg">
+      <publishTime>07/21/2020 11:25:26</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/b2421dffd78d4d7cae7b7c00f7779a7431328.jpg">
+      <publishTime>07/20/2020 19:50:41</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/b392f177dce345709e04c5024837a83661468.jpg">
+      <publishTime>07/17/2020 21:27:23</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/b3cc92e39ad240bcb0141f6995468d9416466.jpg">
+      <publishTime>07/21/2020 15:21:03</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/b88c68c8ed994783a25a88fac75b64ba63687.jpg">
+      <publishTime>07/20/2020 10:23:26</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/b970bdd76fef41b4a773152b9474998286775.jpg">
+      <publishTime>07/21/2020 15:28:24</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/b97a1c4a16f74bf198b1a42f8650637364837.jpeg">
+      <publishTime>07/20/2020 11:21:19</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/b989c7c274954714903671d8a3b1ff7814054.jpeg">
+      <publishTime>07/20/2020 15:51:11</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/ba06982c8e7d4a89b4b4a633d767ebcf27768.png">
+      <publishTime>07/17/2020 20:27:37</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/bee5fb21ab874c498790189a1f01bbce6631.jpg">
+      <publishTime>07/20/2020 15:51:06</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/c5101164ce1a4a4d9b90174aa7f3136896441.jpeg">
+      <publishTime>07/20/2020 15:49:15</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/d01fc90f42174603bcaf5ac416a36f7d75073.jpg">
+      <publishTime>07/20/2020 11:21:09</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/d1f6dafb1d984ee9bb1cf0be8ddf46be64995.jpg">
+      <publishTime>07/21/2020 15:21:07</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/dede87a0eba74505a07ce0daa4534a4280087.jpg">
+      <publishTime>07/21/2020 11:27:42</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/e1ac943decb34fe4bf60c9dc57c6aa698576.jpeg">
+      <publishTime>07/21/2020 15:12:57</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/e4025b24adf94705957db77fba9a832463311.jpg">
+      <publishTime>07/21/2020 22:09:49</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/e4e286eecd0547b88e73c8a8f209aea45627.jpg">
+      <publishTime>07/17/2020 21:27:19</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/eae2818eec614183b90c8ef12636714390818.png">
+      <publishTime>07/17/2020 20:25:18</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/efd7f20a4fb64ff691c04f6091eaa0ca98852.jpg">
+      <publishTime>07/17/2020 20:36:19</publishTime>
+    </File>
+    <File Include="Upload/Product/ProductSkuImg/fed2e7d1ae2d489fa227bdba50e2bcec38267.jpg">
+      <publishTime>07/21/2020 15:28:36</publishTime>
+    </File>
+    <File Include="Views/web.config">
+      <publishTime>06/28/2020 22:46:16</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>09/15/2020 14:52:32</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
